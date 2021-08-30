@@ -1,27 +1,30 @@
+import cli.CliController;
+import dao.GalacticPicturesDao;
+import dao.GalacticPicturesMemory;
 import domain.user.User;
+import service.GalacticPicturesService;
 
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // User user = new User(1, "kirua", "yo44prg@icloud.com", "plop");
-        // if (loginName(user)) {
-           // initMenu();
-        // }
+        GalacticPicturesDao galacticPicturesDao = new GalacticPicturesMemory();
+        GalacticPicturesService galacticPicturesService = new GalacticPicturesService(galacticPicturesDao);
+        CliController cli = new CliController(galacticPicturesService);
+        initData(galacticPicturesService);
+        cli.start();
     }
 
-
-
-
-
-
+    private static void initData(GalacticPicturesService galacticPicturesService) {
+        galacticPicturesService.add("plop");
+        galacticPicturesService.add("plop 2");
+    }
 
 
     private static void initMenu() {
         System.out.println("1 - see all pictures");
         System.out.println("2 - see your favorites pictures");
-
     }
 
     public static boolean loginName(User user) {

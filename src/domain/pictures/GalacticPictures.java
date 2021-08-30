@@ -1,7 +1,5 @@
 package domain.pictures;
 
-import dao.GalacticPicturesDao;
-
 import java.util.UUID;
 
 public class GalacticPictures {
@@ -18,5 +16,12 @@ public class GalacticPictures {
     public GalacticPictures(UUID id, String title) {
         this.id = id;
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "GalacticPictures{" +
+                "title='" + title + '\'' +
+                '}';
     }
 }

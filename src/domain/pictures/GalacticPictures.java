@@ -1,7 +1,11 @@
 package domain.pictures;
 
+import dao.GalacticPicturesDao;
+
+import java.util.UUID;
+
 public class GalacticPictures {
-    private int id;
+    private UUID id;
     private String date;
     private String description;
     private String title;
@@ -11,13 +15,8 @@ public class GalacticPictures {
     private int toLike;
     private int download;
 
-    public GalacticPictures(int id, String date, String description, String title, String mediaType, String hdurl, String url) {
+    public GalacticPictures(UUID id, String title) {
         this.id = id;
-        this.date = date;
-        this.description = description;
         this.title = title;
-        this.mediaType = mediaType;
-        this.hdurl = hdurl;
-        this.url = url;
     }
 }

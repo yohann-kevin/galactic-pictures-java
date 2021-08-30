@@ -11,6 +11,13 @@ public class Main {
         // }
     }
 
+
+
+
+
+
+
+
     private static void initMenu() {
         System.out.println("1 - see all pictures");
         System.out.println("2 - see your favorites pictures");

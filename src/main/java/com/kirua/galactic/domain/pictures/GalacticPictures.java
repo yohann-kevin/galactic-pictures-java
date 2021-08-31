@@ -1,4 +1,4 @@
-package domain.pictures;
+package com.kirua.galactic.domain.pictures;
 
 import java.util.UUID;
 

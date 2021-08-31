@@ -1,6 +1,6 @@
-package dao;
+package com.kirua.galactic.dao;
 
-import domain.pictures.GalacticPictures;
+import com.kirua.galactic.domain.pictures.GalacticPictures;
 
 import java.util.Set;
 

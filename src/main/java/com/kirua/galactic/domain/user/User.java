@@ -1,4 +1,4 @@
-package domain.user;
+package main.java.com.kirua.galactic.domain.user;
 
 public class User {
     private int id;

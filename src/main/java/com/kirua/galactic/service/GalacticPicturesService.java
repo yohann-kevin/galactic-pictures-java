@@ -1,7 +1,7 @@
-package service;
+package com.kirua.galactic.service;
 
-import dao.GalacticPicturesDao;
-import domain.pictures.GalacticPictures;
+import com.kirua.galactic.dao.GalacticPicturesDao;
+import com.kirua.galactic.domain.pictures.GalacticPictures;
 
 import java.util.Set;
 import java.util.UUID;

@@ -1,7 +1,7 @@
-package cli;
+package com.kirua.galactic.cli;
 
-import domain.pictures.GalacticPictures;
-import service.GalacticPicturesService;
+import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.service.GalacticPicturesService;
 
 import java.util.Scanner;
 import java.util.Set;

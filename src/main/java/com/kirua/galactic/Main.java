@@ -1,10 +1,10 @@
-import cli.CliController;
-import dao.GalacticPicturesDao;
-import dao.GalacticPicturesMemory;
-import domain.user.User;
-import service.GalacticPicturesService;
+package com.kirua.galactic;
 
-import java.util.Scanner;
+import com.kirua.galactic.cli.CliController;
+import com.kirua.galactic.dao.GalacticPicturesDao;
+import com.kirua.galactic.dao.GalacticPicturesMemory;
+
+import com.kirua.galactic.service.GalacticPicturesService;
 
 public class Main {
 
@@ -54,42 +54,5 @@ public class Main {
                 "cirrus cloud must be aligned horizontally to properly refract sunlight in a collectively similar manner.  " +
                 "Therefore, circumhorizontal arcs are somewhat unusual to see.  The featured fire rainbow was photographed " +
                 "earlier this month near North Fork Mountain in West Virginia, USA.";
-    }
-
-
-
-
-
-
-    private static void initMenu() {
-        System.out.println("1 - see all pictures");
-        System.out.println("2 - see your favorites pictures");
-    }
-
-    public static boolean loginName(User user) {
-        System.out.println("please log in");
-        System.out.println("enter your name or your email : ");
-        Object responseName = new Scanner(System.in).nextLine();
-        System.out.println(responseName);
-        if (responseName.equals(user.getPseudo()) || responseName.equals(user.getEmail())) {
-            if (loginPass(user)) return true;
-        } else {
-            System.out.println("name or email is unknown");
-            System.out.println("please try again");
-            loginName(user);
-        }
-        return false;
-    }
-
-    public static boolean loginPass(User user) {
-        System.out.println("please enter your password : ");
-        Object responsePass = new Scanner(System.in).nextLine();
-        if (responsePass.equals(user.getPassword())) {
-            System.out.println("you connected well !");
-            return true;
-        } else {
-            loginPass(user);
-        }
-        return false;
     }
 }

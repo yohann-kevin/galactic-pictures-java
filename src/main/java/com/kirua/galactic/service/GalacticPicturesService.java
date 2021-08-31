@@ -13,9 +13,10 @@ public class GalacticPicturesService {
         this.galacticPicturesDao = galacticPicturesDao;
     }
 
-    public void add(String name, String description, String date) {
+    public GalacticPictures add(String name, String description, String date) {
         GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), name, description, date);
         galacticPicturesDao.add(newPictures);
+        return newPictures;
     }
 
     public Set<GalacticPictures> findAll() {

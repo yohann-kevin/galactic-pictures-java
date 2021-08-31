@@ -13,15 +13,22 @@ public class GalacticPictures {
     private int toLike;
     private int download;
 
-    public GalacticPictures(UUID id, String title) {
+    public GalacticPictures(UUID id, String title, String date) {
         this.id = id;
         this.title = title;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     @Override
     public String toString() {
         return "GalacticPictures{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", title='" + title + '\'' +
                 '}';
     }
 }

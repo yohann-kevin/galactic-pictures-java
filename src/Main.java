@@ -17,9 +17,14 @@ public class Main {
     }
 
     private static void initData(GalacticPicturesService galacticPicturesService) {
-        galacticPicturesService.add("plop");
-        galacticPicturesService.add("plop 2");
+        galacticPicturesService.add("plop", "2021-08-31");
+        galacticPicturesService.add("plop 2", "2021-08-30");
     }
+
+
+
+
+
 
 
     private static void initMenu() {

@@ -23,6 +23,14 @@ public class GalacticPictures {
         return date;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "GalacticPictures{" +

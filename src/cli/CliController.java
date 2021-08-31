@@ -18,7 +18,8 @@ public class CliController {
         System.out.println("--------------------");
         System.out.println("1 - Display all pictures");
         System.out.println("2 - Display picture by date");
-        System.out.println("3 - Quit this program");
+        System.out.println("3 - Delete picture with id");
+        System.out.println("4 - Quit this program");
         System.out.println("--------------------");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
@@ -42,8 +43,26 @@ public class CliController {
             }
             this.start();
         } else if (choice.equals("3")) {
+            Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+            for (GalacticPictures picture : galacticPicturesList) {
+                System.out.println(picture.getTitle() + " : " + picture.getId());
+            }
+            String id = this.getIdEntry();
+            this.galacticPicturesService.deleteById(id);
+            System.out.println("Picture is deleted");
+            this.start();
+        } else if (choice.equals("4")) {
             System.out.println("Good Bye !");
         }
+    }
+
+    public String getIdEntry() {
+        System.out.println("--------------------");
+        System.out.println("please enter a id");
+        System.out.println("--------------------");
+        Scanner scanner = new Scanner(System.in);
+        String id = scanner.next();
+        return id;
     }
 
     public String getDateEntry() {

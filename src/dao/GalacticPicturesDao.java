@@ -12,4 +12,6 @@ public interface GalacticPicturesDao {
      GalacticPictures findByDate(String date);
 
      void add(GalacticPictures galacticPictures);
+
+     void deleteById(String id);
 }

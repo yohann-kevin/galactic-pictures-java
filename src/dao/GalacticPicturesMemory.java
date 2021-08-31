@@ -26,4 +26,17 @@ public class GalacticPicturesMemory implements GalacticPicturesDao {
     public void add(GalacticPictures galacticPictures) {
         pictures.add(galacticPictures);
     }
+
+    @Override
+    public void deleteById(String id) {
+        UUID uid = UUID.fromString(id);
+        Iterator<GalacticPictures> iteratePicture = pictures.iterator();
+        while (iteratePicture.hasNext()) {
+            GalacticPictures currentPicture = iteratePicture.next();
+            if (currentPicture.getId().equals(uid)) {
+                iteratePicture.remove();
+                System.out.println("plop plop");
+            }
+        }
+    }
 }

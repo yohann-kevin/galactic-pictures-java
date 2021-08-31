@@ -24,4 +24,6 @@ public class GalacticPicturesService {
     }
 
     public GalacticPictures findByDate(String date) { return galacticPicturesDao.findByDate(date); }
+
+    public void deleteById(String id) { galacticPicturesDao.deleteById(id); }
 }

@@ -14,9 +14,6 @@ public class GalacticPicturesMemory implements GalacticPicturesDao {
 
     @Override
     public GalacticPictures findByDate(String date) {
-        // for (int i = 0; i < pictures.size(); i++) {
-            // if (pictures.get(i).getDate().equals(date)) return pictures.get(i);
-        // }
         Iterator<GalacticPictures> iteratePicture = pictures.iterator();
         while (iteratePicture.hasNext()) {
             GalacticPictures currentPicture = iteratePicture.next();

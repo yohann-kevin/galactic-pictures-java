@@ -18,10 +18,14 @@ public class CliController {
         System.out.println("--------------------");
         System.out.println("1 - Display all pictures");
         System.out.println("2 - Display picture by date");
+        System.out.println("3 - Quit this program");
         System.out.println("--------------------");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
+        this.manageChoice(choice);
+    }
 
+    public void manageChoice(String choice) {
         if (choice.equals("1")) {
             Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
             for (GalacticPictures picture : galacticPicturesList) {
@@ -31,8 +35,14 @@ public class CliController {
         } else if (choice.equals("2")) {
             String date = this.getDateEntry();
             GalacticPictures galacticPicture = this.galacticPicturesService.findByDate(date);
-            System.out.println(galacticPicture);
+            if (galacticPicture == null) {
+                System.out.println("No image is available for this date !");
+            } else {
+                System.out.println(galacticPicture);
+            }
             this.start();
+        } else if (choice.equals("3")) {
+            System.out.println("Good Bye !");
         }
     }
 

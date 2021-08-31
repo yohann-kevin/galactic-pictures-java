@@ -28,44 +28,60 @@ public class CliController {
 
     public void manageChoice(String choice) {
         if (choice.equals("1")) {
-            Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
-            for (GalacticPictures picture : galacticPicturesList) {
-                System.out.println(picture);
-            }
+            this.displayAllPicture();
             this.start();
         } else if (choice.equals("2")) {
-            String date = this.getDateEntry();
-            GalacticPictures galacticPicture = this.galacticPicturesService.findByDate(date);
-            if (galacticPicture == null) {
-                System.out.println("No image is available for this date !");
-            } else {
-                System.out.println(galacticPicture);
-            }
+            this.displayPictureBydate();
             this.start();
         } else if (choice.equals("3")) {
-            Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
-            for (GalacticPictures picture : galacticPicturesList) {
-                System.out.println(picture.getTitle() + " : " + picture.getId());
-            }
-            String id = this.getIdEntry();
-            this.galacticPicturesService.deleteById(id);
-            System.out.println("Picture is deleted");
+            this.deletePicture();
             this.start();
         } else if (choice.equals("4")) {
-            Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
-            for (GalacticPictures picture : galacticPicturesList) {
-                System.out.println(picture.getTitle() + " : " + picture.getId());
-            }
-            String id = this.getIdEntry();
-            String description = this.galacticPicturesService.seeDescription(id);
-            if (description == null) {
-                System.out.println("No image is available for this id !");
-            } else {
-                System.out.println(description);
-            }
+            this.displayDescription();
             this.start();
         } else if (choice.equals("5")) {
             System.out.println("Good Bye !");
+        }
+    }
+
+    public void displayAllPicture() {
+        Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+        for (GalacticPictures picture : galacticPicturesList) {
+            System.out.println(picture);
+        }
+    }
+
+    public void displayPictureBydate() {
+        String date = this.getDateEntry();
+        GalacticPictures galacticPicture = this.galacticPicturesService.findByDate(date);
+        if (galacticPicture == null) {
+            System.out.println("No image is available for this date !");
+        } else {
+            System.out.println(galacticPicture);
+        }
+    }
+
+    public void deletePicture() {
+        Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+        for (GalacticPictures picture : galacticPicturesList) {
+            System.out.println(picture.getTitle() + " : " + picture.getId());
+        }
+        String id = this.getIdEntry();
+        this.galacticPicturesService.deleteById(id);
+        System.out.println("Picture is deleted");
+    }
+
+    public void displayDescription() {
+        Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+        for (GalacticPictures picture : galacticPicturesList) {
+            System.out.println(picture.getTitle() + " : " + picture.getId());
+        }
+        String id = this.getIdEntry();
+        String description = this.galacticPicturesService.seeDescription(id);
+        if (description == null) {
+            System.out.println("No image is available for this id !");
+        } else {
+            System.out.println(description);
         }
     }
 

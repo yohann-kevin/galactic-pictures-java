@@ -2,7 +2,6 @@ package dao;
 
 import domain.pictures.GalacticPictures;
 
-import java.util.List;
 import java.util.Set;
 
 public interface GalacticPicturesDao {
@@ -14,4 +13,6 @@ public interface GalacticPicturesDao {
      void add(GalacticPictures galacticPictures);
 
      void deleteById(String id);
+
+     String seeDescription(String id);
 }

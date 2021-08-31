@@ -3,7 +3,6 @@ package cli;
 import domain.pictures.GalacticPictures;
 import service.GalacticPicturesService;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -19,7 +18,8 @@ public class CliController {
         System.out.println("1 - Display all pictures");
         System.out.println("2 - Display picture by date");
         System.out.println("3 - Delete picture with id");
-        System.out.println("4 - Quit this program");
+        System.out.println("4 - See picture description");
+        System.out.println("5 - Quit this program");
         System.out.println("--------------------");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
@@ -52,6 +52,19 @@ public class CliController {
             System.out.println("Picture is deleted");
             this.start();
         } else if (choice.equals("4")) {
+            Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+            for (GalacticPictures picture : galacticPicturesList) {
+                System.out.println(picture.getTitle() + " : " + picture.getId());
+            }
+            String id = this.getIdEntry();
+            String description = this.galacticPicturesService.seeDescription(id);
+            if (description == null) {
+                System.out.println("No image is available for this id !");
+            } else {
+                System.out.println(description);
+            }
+            this.start();
+        } else if (choice.equals("5")) {
             System.out.println("Good Bye !");
         }
     }

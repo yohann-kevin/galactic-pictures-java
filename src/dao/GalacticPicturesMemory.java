@@ -39,4 +39,15 @@ public class GalacticPicturesMemory implements GalacticPicturesDao {
             }
         }
     }
+
+    @Override
+    public String seeDescription(String id) {
+        UUID uid = UUID.fromString(id);
+        Iterator<GalacticPictures> iteratePicture = pictures.iterator();
+        while (iteratePicture.hasNext()) {
+            GalacticPictures currentPicture = iteratePicture.next();
+            if (currentPicture.getId().equals(uid)) return currentPicture.getDescription();
+        }
+        return null;
+    }
 }

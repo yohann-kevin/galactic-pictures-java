@@ -8,15 +8,21 @@ public class GalacticPictures {
     private String description;
     private String title;
     private String mediaType;
+    private String copyright;
     private String hdurl;
     private String url;
     private int toLike;
     private int download;
 
-    public GalacticPictures(UUID id, String title, String date) {
+    public GalacticPictures(UUID id, String title, String description, String date) {
         this.id = id;
         this.title = title;
+        this.description = description;
         this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getDate() {

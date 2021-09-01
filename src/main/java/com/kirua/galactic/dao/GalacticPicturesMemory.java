@@ -35,7 +35,6 @@ public class GalacticPicturesMemory implements GalacticPicturesDao {
             GalacticPictures currentPicture = iteratePicture.next();
             if (currentPicture.getId().equals(uid)) {
                 iteratePicture.remove();
-                System.out.println("plop plop");
             }
         }
     }
@@ -49,5 +48,19 @@ public class GalacticPicturesMemory implements GalacticPicturesDao {
             if (currentPicture.getId().equals(uid)) return currentPicture.getDescription();
         }
         return null;
+    }
+
+    @Override
+    public void updatePicture(String id, String name, String description, String date) {
+        UUID uid = UUID.fromString(id);
+        Iterator<GalacticPictures> iteratePicture = pictures.iterator();
+        GalacticPictures selectedPicture = null;
+        while (iteratePicture.hasNext()) {
+            GalacticPictures currentPicture = iteratePicture.next();
+            if (currentPicture.getId().equals(uid)) selectedPicture = currentPicture;
+        }
+        selectedPicture.setTitle(name);
+        selectedPicture.setDescription(description);
+        selectedPicture.setDate(date);
     }
 }

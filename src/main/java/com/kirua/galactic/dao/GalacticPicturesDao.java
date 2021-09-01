@@ -15,4 +15,6 @@ public interface GalacticPicturesDao {
      void deleteById(String id);
 
      String seeDescription(String id);
+
+     void updatePicture(String id, String name, String description, String date);
 }

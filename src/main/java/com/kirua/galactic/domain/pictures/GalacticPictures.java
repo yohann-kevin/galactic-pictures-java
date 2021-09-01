@@ -33,8 +33,18 @@ public class GalacticPictures {
         return title;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getId() { return id; }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override

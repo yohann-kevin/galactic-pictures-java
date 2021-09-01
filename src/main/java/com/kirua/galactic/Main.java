@@ -26,6 +26,11 @@ public class Main {
                 descTwo(),
                 "2021-08-30"
         );
+        galacticPicturesService.add(
+                "test image for corenthin who absolutely want a put",
+                "I have no idea of description",
+                "2006-12-24"
+        );
     }
 
     public static String descOne() {

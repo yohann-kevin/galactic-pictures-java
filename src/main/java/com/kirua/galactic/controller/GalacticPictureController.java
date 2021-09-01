@@ -46,4 +46,9 @@ public class GalacticPictureController {
         description.put("description", this.galacticPicturesService.seeDescription(id));
         return description;
     }
+
+    @PutMapping("/picture/modify")
+    public void modifyPicture(@RequestParam String id, String name, String description, String date) {
+        this.galacticPicturesService.updatePicture(id, name, description, date);
+    }
 }

@@ -28,4 +28,6 @@ public class GalacticPicturesService {
     public void deleteById(String id) { galacticPicturesDao.deleteById(id); }
 
     public String seeDescription(String id) { return galacticPicturesDao.seeDescription(id); }
+
+    public void updatePicture(String id, String name, String description, String date) { galacticPicturesDao.updatePicture(id, name, description, date); }
 }

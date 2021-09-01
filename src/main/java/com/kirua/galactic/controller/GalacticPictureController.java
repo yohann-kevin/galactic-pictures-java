@@ -10,10 +10,10 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-public class GalacticConrtoller {
+public class GalacticPictureController {
     private GalacticPicturesService galacticPicturesService;
 
-    public GalacticConrtoller(GalacticPicturesService galacticPicturesService) {
+    public GalacticPictureController(GalacticPicturesService galacticPicturesService) {
         this.galacticPicturesService = galacticPicturesService;
     }
 
@@ -35,7 +35,7 @@ public class GalacticConrtoller {
         return galacticPicture;
     }
 
-    @GetMapping("/picture/delete")
+    @DeleteMapping("/picture/delete")
     public void deletePicture(@RequestParam(value = "id") String id) {
         this.galacticPicturesService.deleteById(id);
     }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="com.kirua.galactic.cli"></context:component-scan>
+    <context:component-scan base-package="com.kirua.galactic.service"></context:component-scan>
+    <context:component-scan base-package="com.kirua.galactic.dao"></context:component-scan>
+    <context:component-scan base-package="com.kirua.galactic.config"></context:component-scan>
+
+<!--    <bean id="galacticPicturesDao" class="com.kirua.galactic.dao.GalacticPicturesMemory"/>-->
+<!--    <bean id="galacticPicturesService" class="com.kirua.galactic.service.GalacticPicturesService">-->
+<!--        <constructor-arg name="galacticPicturesDao" ref="galacticPicturesDao" ></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="cliController" class="com.kirua.galactic.cli.CliController">-->
+<!--        <constructor-arg name="galacticPicturesService" ref="galacticPicturesService"></constructor-arg>-->
+<!--    </bean>-->
+</beans>

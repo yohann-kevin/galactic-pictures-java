@@ -1,18 +1,19 @@
 package com.kirua.galactic;
 
 import com.kirua.galactic.cli.CliController;
-import com.kirua.galactic.dao.GalacticPicturesDao;
-import com.kirua.galactic.dao.GalacticPicturesMemory;
 
 import com.kirua.galactic.service.GalacticPicturesService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
-        GalacticPicturesDao galacticPicturesDao = new GalacticPicturesMemory();
-        GalacticPicturesService galacticPicturesService = new GalacticPicturesService(galacticPicturesDao);
-        CliController cli = new CliController(galacticPicturesService);
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        GalacticPicturesService galacticPicturesService = applicationContext.getBean(GalacticPicturesService.class);
         initData(galacticPicturesService);
+
+        CliController cli = applicationContext.getBean(CliController.class);
         cli.start();
     }
 

@@ -1,23 +1,13 @@
 package com.kirua.galactic;
 
-import com.kirua.galactic.cli.CliController;
-
 import com.kirua.galactic.service.GalacticPicturesService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-//
-//        GalacticPicturesService galacticPicturesService = applicationContext.getBean(GalacticPicturesService.class);
-//        initData(galacticPicturesService);
-//
-//        CliController cli = applicationContext.getBean(CliController.class);
-//        cli.start();
         SpringApplication.run(Main.class, args);
 
     }

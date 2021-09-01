@@ -4,6 +4,7 @@ import com.kirua.galactic.cli.CliController;
 import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.dao.GalacticPicturesMemory;
 import com.kirua.galactic.service.GalacticPicturesService;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

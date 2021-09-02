@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
+@RequestMapping("/picture")
 public class GalacticPictureController {
     private GalacticPicturesService galacticPicturesService;
 
@@ -23,37 +24,37 @@ public class GalacticPictureController {
         this.galacticPicturesService = galacticPicturesService;
     }
 
-    @PostMapping("/picture/create")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addGalacticPicture(@RequestParam String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {
         this.galacticPicturesService.add(name, description, date, url, hdurl, copyright, mediaType);
     }
 
-    @GetMapping("/picture/all")
+    @GetMapping
     public Set<GalacticPictures> displayAllPicture() {
         Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
         return galacticPicturesList;
     }
 
-    @GetMapping("/picture/by")
-    public GalacticPictures displayPictureDate(@RequestParam(value = "date", defaultValue = "2021-08-31") String date) {
+    @GetMapping("/{date}")
+    public GalacticPictures displayPictureDate(@PathVariable String date) {
         GalacticPictures galacticPicture = this.galacticPicturesService.findByDate(date);
         return galacticPicture;
     }
 
-    @DeleteMapping("/picture/delete")
+    @DeleteMapping
     public void deletePicture(@RequestParam(value = "id") String id) {
         this.galacticPicturesService.deleteById(id);
     }
 
-    @GetMapping("/picture/description")
-    public Map<String, String> displayDescription(@RequestParam(value = "id") String id) {
+    @GetMapping("/description/{uuid}")
+    public Map<String, String> displayDescription(@PathVariable String uuid) {
         Map<String, String> description = new HashMap<>();
-        description.put("description", this.galacticPicturesService.seeDescription(id));
+        description.put("description", this.galacticPicturesService.seeDescription(uuid));
         return description;
     }
 
-    @PutMapping("/picture/modify")
+    @PutMapping
     public void modifyPicture(@RequestParam String id, String name, String description, String date) {
         this.galacticPicturesService.updatePicture(id, name, description, date);
     }

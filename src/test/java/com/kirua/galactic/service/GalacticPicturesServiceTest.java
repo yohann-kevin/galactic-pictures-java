@@ -1,18 +1,5 @@
 package com.kirua.galactic.service;
 
-import com.kirua.galactic.dao.GalacticPicturesDao;
-import com.kirua.galactic.domain.pictures.GalacticPictures;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
 public class GalacticPicturesServiceTest {
 //    GalacticPicturesDao picturesDao;
 //    GalacticPicturesService picturesService;

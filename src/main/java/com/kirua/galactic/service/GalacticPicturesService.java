@@ -13,8 +13,8 @@ public class GalacticPicturesService {
         this.galacticPicturesDao = galacticPicturesDao;
     }
 
-    public GalacticPictures add(String name, String description, String date) {
-        GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), name, description, date);
+    public GalacticPictures add(String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {
+        GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), name, description, date, url, hdurl, copyright, mediaType);
         galacticPicturesDao.add(newPictures);
         return newPictures;
     }

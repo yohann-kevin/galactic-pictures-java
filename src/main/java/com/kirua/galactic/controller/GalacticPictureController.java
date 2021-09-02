@@ -25,8 +25,8 @@ public class GalacticPictureController {
 
     @PostMapping("/picture/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addGalacticPicture(@RequestParam String name, String description, String date) {
-        this.galacticPicturesService.add(name, description, date);
+    public void addGalacticPicture(@RequestParam String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {
+        this.galacticPicturesService.add(name, description, date, url, hdurl, copyright, mediaType);
     }
 
     @GetMapping("/picture/all")
@@ -59,8 +59,8 @@ public class GalacticPictureController {
     }
 
     @GetMapping("/find")
-    public Map findDataToNasaApi() {
-        String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+    public Map findDataToNasaApi(String date) {
+        String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
         RestTemplate restTemplate = new RestTemplate();
         Map<String, Object> res = new HashMap<>();
         Map<String, String> data = new HashMap<>();
@@ -79,7 +79,15 @@ public class GalacticPictureController {
             e.printStackTrace();
         }
 
-        this.galacticPicturesService.add(data.get("title"), data.get("description"), data.get("date"));
+        this.galacticPicturesService.add(
+                data.get("title"),
+                data.get("description"),
+                data.get("date"),
+                data.get("url"),
+                data.get("hdurl"),
+                data.get("copyright"),
+                data.get("mediaType")
+        );
         return res;
     }
 
@@ -90,7 +98,7 @@ public class GalacticPictureController {
         data.put("description", node.get("explanation").asText());
         data.put("url", node.get("url").asText());
         data.put("hdurl", node.get("hdurl").asText());
-        data.put("copyright", node.get("copyright").asText());
+        if (node.get("copyright") != null) data.put("copyright", node.get("copyright").asText());
         data.put("mediaType", node.get("media_type").asText());
         return data;
     }

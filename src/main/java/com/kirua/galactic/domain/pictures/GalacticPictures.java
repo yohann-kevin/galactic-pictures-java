@@ -14,11 +14,15 @@ public class GalacticPictures {
     private int toLike;
     private int download;
 
-    public GalacticPictures(UUID id, String title, String description, String date) {
+    public GalacticPictures(UUID id, String title, String description, String date, String url, String hdurl, String copyright, String mediaType) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.date = date;
+        this.url = url;
+        this.hdurl = hdurl;
+        this.copyright = copyright;
+        this.mediaType = mediaType;
     }
 
     public String getDescription() {
@@ -34,6 +38,14 @@ public class GalacticPictures {
     }
 
     public UUID getId() { return id; }
+
+    public String getCopyright() { return copyright; }
+
+    public String getHdurl() { return hdurl; }
+
+    public String getUrl() { return url; }
+
+    public String getMediaType() { return mediaType; }
 
     public void setDate(String date) {
         this.date = date;

@@ -1,5 +1,6 @@
 package com.kirua.galactic;
 
+import com.kirua.galactic.controller.GalacticPictureController;
 import com.kirua.galactic.service.GalacticPicturesService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,51 +13,11 @@ public class Main {
         ApplicationContext ctx =  SpringApplication.run(Main.class, args);
 
         GalacticPicturesService galacticPicturesService = ctx.getBean(GalacticPicturesService.class);
-        initData(galacticPicturesService);
-    }
 
-    private static void initData(GalacticPicturesService galacticPicturesService) {
-        galacticPicturesService.add(
-                "A Blue Moon in Exaggerated Colors",
-                descOne(),
-                "2021-08-31"
-        );
-        galacticPicturesService.add(
-                "A Fire Rainbow over West Virginia",
-                descTwo(),
-                "2021-08-30"
-        );
-        galacticPicturesService.add(
-                "test image for corenthin who absolutely want a put",
-                "I have no idea of description",
-                "2006-12-24"
-        );
-    }
-
-    public static String descOne() {
-        return "The Moon is normally seen in subtle shades of grey or gold.  " +
-                "But small, measurable color differences have been greatly exaggerated " +
-                "to make this telescopic, multicolored, moonscape captured during the Moon's full phase.  " +
-                "The different colors are recognized to correspond to real differences in the " +
-                "chemical makeup of the lunar surface.  Blue hues reveal titanium rich " +
-                "areas while orange and purple colors show regions relatively poor in titanium and iron.  " +
-                "The familiar Sea of Tranquility, or Mare Tranquillitatis, is the blue area toward the upper right.  " +
-                "White lines radiate across the orange-hued southern lunar highlands from 85-kilometer wide ray-crater " +
-                "Tycho at bottom right.  The full moon that occurred earlier this month could be counted as a " +
-                "seasonal blue moon because it was, unusually, the third of four full moons to occur during " +
-                "northern summer (and hence southern winter).  The featured 272-image composite " +
-                "demonstrates that the full Moon is always blue, but usually not blue enough in hue to ooh.   " +
-                "Almost Hyperspace: Random APOD Generator";
-    }
-
-    public static String descTwo() {
-        return "What's happening to this cloud? Ice crystals in a distant cirrus cloud are acting " +
-                "like little floating prisms.  Known informally as a fire rainbow for its flame-like " +
-                "appearance, a circumhorizon arc appears parallel to the horizon. For a circumhorizontal arc to " +
-                "be visible, the Sun must be at least 58 degrees high in a sky where cirrus clouds present below --  " +
-                "in this case cirrus fibrates.  The numerous, flat, hexagonal ice-crystals that compose the " +
-                "cirrus cloud must be aligned horizontally to properly refract sunlight in a collectively similar manner.  " +
-                "Therefore, circumhorizontal arcs are somewhat unusual to see.  The featured fire rainbow was photographed " +
-                "earlier this month near North Fork Mountain in West Virginia, USA.";
+        GalacticPictureController galacticPictureController = new GalacticPictureController(galacticPicturesService);
+        galacticPictureController.findDataToNasaApi("2021-08-30");
+        galacticPictureController.findDataToNasaApi("2021-08-31");
+        galacticPictureController.findDataToNasaApi("2021-09-01");
+        galacticPictureController.findDataToNasaApi("2021-09-02");
     }
 }

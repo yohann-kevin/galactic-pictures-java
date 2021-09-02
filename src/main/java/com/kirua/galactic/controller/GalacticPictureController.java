@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.exception.PictureException;
 import com.kirua.galactic.service.GalacticPicturesService;
 
 import org.json.JSONObject;

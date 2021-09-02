@@ -61,34 +61,41 @@ public class GalacticPictureController {
 
     @GetMapping("/find")
     public Map getDataFromNasaApi(String date) {
-        String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
-        RestTemplate restTemplate = new RestTemplate();
         Map<String, Object> res = new HashMap<>();
-        Map<String, String> data = new HashMap<>();
-        ObjectMapper mapper = new ObjectMapper();
 
-        try {
-            String response = restTemplate.getForObject(url, String.class);
-            String result = new JSONObject(response).toString();
-            JsonNode node = mapper.readTree(result);
-            data = this.formatNasaData(node);
-            res.put("response", true);
-            res.put("data", data);
-        } catch (JsonProcessingException e) {
+        if (this.displayPictureDate(date) == null) {
+            String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
+            RestTemplate restTemplate = new RestTemplate();
+            Map<String, String> data = new HashMap<>();
+            ObjectMapper mapper = new ObjectMapper();
+
+            try {
+                String response = restTemplate.getForObject(url, String.class);
+                String result = new JSONObject(response).toString();
+                JsonNode node = mapper.readTree(result);
+                data = this.formatNasaData(node);
+                res.put("response", true);
+                res.put("data", data);
+            } catch (JsonProcessingException e) {
+                res.put("response", false);
+                res.put("error", e);
+                e.printStackTrace();
+            }
+
+            this.galacticPicturesService.add(
+                    data.get("title"),
+                    data.get("description"),
+                    data.get("date"),
+                    data.get("url"),
+                    data.get("hdurl"),
+                    data.get("copyright"),
+                    data.get("mediaType")
+            );
+        } else {
             res.put("response", false);
-            res.put("error", e);
-            e.printStackTrace();
+            res.put("error", "This pictures is already save");
         }
 
-        this.galacticPicturesService.add(
-                data.get("title"),
-                data.get("description"),
-                data.get("date"),
-                data.get("url"),
-                data.get("hdurl"),
-                data.get("copyright"),
-                data.get("mediaType")
-        );
         return res;
     }
 
@@ -108,7 +115,7 @@ public class GalacticPictureController {
         if (node.get("copyright") == null) {
             return "This content has been provided by NASA";
         } else {
-            return  node.get("copyright").asText();
+            return node.get("copyright").asText();
         }
     }
 }

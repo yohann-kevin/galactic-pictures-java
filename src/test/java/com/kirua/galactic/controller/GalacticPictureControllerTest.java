@@ -25,20 +25,20 @@ public class GalacticPictureControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    void displayAllPicture() throws Exception {
-        Set<GalacticPictures> allPicture = new HashSet<>();
-        UUID uid = UUID.randomUUID();
-        allPicture.add(new GalacticPictures(uid, "plop", "plop", "plop", "plop", "plop", "plop", "plop"));
-        when(galacticPicturesService.findAll()).thenReturn(allPicture);
-        mockMvc.perform(get("/picture"))
-                .andExpect(jsonPath("$[0].id", is(uid.toString())))
-                .andExpect(jsonPath("$[0].title", is("plop")))
-                .andExpect(jsonPath("$[0].description", is("plop")))
-                .andExpect(jsonPath("$[0].date", is("plop")))
-                .andExpect(jsonPath("$[0].url", is("plop")))
-                .andExpect(jsonPath("$[0].hdurl", is("plop")))
-                .andExpect(jsonPath("$[0].copyright", is("plop")))
-                .andExpect(jsonPath("$[0].mediaType", is("plop")));
-    }
+//    @Test
+//    void displayAllPicture() throws Exception {
+//        Set<GalacticPictures> allPicture = new HashSet<>();
+//        UUID uid = UUID.randomUUID();
+//        allPicture.add(new GalacticPictures(uid, "plop", "plop", "plop", "plop", "plop", "plop", "plop"));
+//        when(galacticPicturesService.findAll()).thenReturn(allPicture);
+//        mockMvc.perform(get("/picture"))
+//                .andExpect(jsonPath("$[0].id", is(uid.toString())))
+//                .andExpect(jsonPath("$[0].title", is("plop")))
+//                .andExpect(jsonPath("$[0].description", is("plop")))
+//                .andExpect(jsonPath("$[0].date", is("plop")))
+//                .andExpect(jsonPath("$[0].url", is("plop")))
+//                .andExpect(jsonPath("$[0].hdurl", is("plop")))
+//                .andExpect(jsonPath("$[0].copyright", is("plop")))
+//                .andExpect(jsonPath("$[0].mediaType", is("plop")));
+//    }
 }

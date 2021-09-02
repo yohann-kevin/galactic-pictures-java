@@ -11,9 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 @RequestMapping("/picture")
@@ -27,12 +26,12 @@ public class GalacticPictureController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addGalacticPicture(@RequestParam String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {
-        this.galacticPicturesService.add(name, description, date, url, hdurl, copyright, mediaType);
+        this.galacticPicturesService.add(date, description, name, mediaType, copyright, hdurl, url);
     }
 
     @GetMapping
-    public Set<GalacticPictures> displayAllPicture() {
-        Set<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
+    public ArrayList<GalacticPictures> displayAllPicture() {
+        ArrayList<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
         return galacticPicturesList;
     }
 
@@ -60,41 +59,60 @@ public class GalacticPictureController {
     }
 
     @GetMapping("/find")
+    public void findDataFromNasaApi() {
+        Date currentDate = new Date();
+        for (int i = 0; i > -5; i--) {
+            Date beforeToday = this.addDays(currentDate, i);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            this.checkIfPictureIsAlreadyExist(dateFormat.format(beforeToday));
+        }
+    }
+
+    public Date addDays(Date date, int days) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days);
+        return cal.getTime();
+    }
+
+    public void checkIfPictureIsAlreadyExist(String date) {
+        if (this.displayPictureDate(date) == null) {
+            this.getDataFromNasaApi(date);
+        } else {
+            System.out.println("error");
+        }
+    }
+
     public Map getDataFromNasaApi(String date) {
         Map<String, Object> res = new HashMap<>();
+        String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, String> data = new HashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
 
-        if (this.displayPictureDate(date) == null) {
-            String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
-            RestTemplate restTemplate = new RestTemplate();
-            Map<String, String> data = new HashMap<>();
-            ObjectMapper mapper = new ObjectMapper();
-
-            try {
-                String response = restTemplate.getForObject(url, String.class);
-                String result = new JSONObject(response).toString();
-                JsonNode node = mapper.readTree(result);
-                data = this.formatNasaData(node);
-                res.put("response", true);
-                res.put("data", data);
-            } catch (JsonProcessingException e) {
-                res.put("response", false);
-                res.put("error", e);
-                e.printStackTrace();
-            }
-
-            this.galacticPicturesService.add(
-                    data.get("title"),
-                    data.get("description"),
-                    data.get("date"),
-                    data.get("url"),
-                    data.get("hdurl"),
-                    data.get("copyright"),
-                    data.get("mediaType")
-            );
-        } else {
+        try {
+            String response = restTemplate.getForObject(url, String.class);
+            String result = new JSONObject(response).toString();
+            JsonNode node = mapper.readTree(result);
+            data = this.formatNasaData(node);
+            res.put("response", true);
+            res.put("data", data);
+        } catch (JsonProcessingException e) {
             res.put("response", false);
-            res.put("error", "This pictures is already save");
+            res.put("error", e);
+            e.printStackTrace();
         }
+
+        this.galacticPicturesService.add(
+                data.get("date"),
+                data.get("description"),
+                data.get("title"),
+                data.get("mediaType"),
+                data.get("copyright"),
+                data.get("hdurl"),
+                data.get("url")
+        );
+
 
         return res;
     }

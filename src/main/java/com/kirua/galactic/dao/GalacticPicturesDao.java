@@ -2,11 +2,11 @@ package com.kirua.galactic.dao;
 
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 
-import java.util.Set;
+import java.util.ArrayList;
 
 public interface GalacticPicturesDao {
 
-     Set<GalacticPictures> findAll();
+     ArrayList findAll();
 
      GalacticPictures findByDate(String date);
 

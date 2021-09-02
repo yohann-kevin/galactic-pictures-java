@@ -3,6 +3,7 @@ package com.kirua.galactic.service;
 import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,12 +15,12 @@ public class GalacticPicturesService {
     }
 
     public GalacticPictures add(String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {
-        GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), name, description, date, url, hdurl, copyright, mediaType);
+        GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), date, description, name, mediaType, copyright, hdurl, url);
         galacticPicturesDao.add(newPictures);
         return newPictures;
     }
 
-    public Set<GalacticPictures> findAll() {
+    public ArrayList<GalacticPictures> findAll() {
         return galacticPicturesDao.findAll();
     }
 

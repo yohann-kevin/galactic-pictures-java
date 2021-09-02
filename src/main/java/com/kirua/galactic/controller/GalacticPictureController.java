@@ -99,7 +99,16 @@ public class GalacticPictureController {
         data.put("url", node.get("url").asText());
         data.put("hdurl", node.get("hdurl").asText());
         if (node.get("copyright") != null) data.put("copyright", node.get("copyright").asText());
+        data.put("copyright", this.manageCopyright(node));
         data.put("mediaType", node.get("media_type").asText());
         return data;
+    }
+
+    public String manageCopyright(JsonNode node) {
+        if (node.get("copyright") == null) {
+            return "This content has been provided by NASA";
+        } else {
+            return  node.get("copyright").asText();
+        }
     }
 }

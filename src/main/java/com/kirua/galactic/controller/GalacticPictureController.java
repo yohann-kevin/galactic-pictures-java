@@ -1,9 +1,15 @@
 package com.kirua.galactic.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.service.GalacticPicturesService;
+
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,5 +56,42 @@ public class GalacticPictureController {
     @PutMapping("/picture/modify")
     public void modifyPicture(@RequestParam String id, String name, String description, String date) {
         this.galacticPicturesService.updatePicture(id, name, description, date);
+    }
+
+    @GetMapping("/find")
+    public Map findDataToNasaApi() {
+        String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, Object> res = new HashMap<>();
+        Map<String, String> data = new HashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            String response = restTemplate.getForObject(url, String.class);
+            String result = new JSONObject(response).toString();
+            JsonNode node = mapper.readTree(result);
+            data = this.formatNasaData(node);
+            res.put("response", true);
+            res.put("data", data);
+        } catch (JsonProcessingException e) {
+            res.put("response", false);
+            res.put("error", e);
+            e.printStackTrace();
+        }
+
+        this.galacticPicturesService.add(data.get("title"), data.get("description"), data.get("date"));
+        return res;
+    }
+
+    public Map formatNasaData(JsonNode node) {
+        Map<String, String> data = new HashMap<>();
+        data.put("date", node.get("date").asText());
+        data.put("title", node.get("title").asText());
+        data.put("description", node.get("explanation").asText());
+        data.put("url", node.get("url").asText());
+        data.put("hdurl", node.get("hdurl").asText());
+        data.put("copyright", node.get("copyright").asText());
+        data.put("mediaType", node.get("media_type").asText());
+        return data;
     }
 }

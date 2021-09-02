@@ -6,6 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 @SpringBootApplication
 public class Main {
 
@@ -13,11 +17,20 @@ public class Main {
         ApplicationContext ctx =  SpringApplication.run(Main.class, args);
 
         GalacticPicturesService galacticPicturesService = ctx.getBean(GalacticPicturesService.class);
-
         GalacticPictureController galacticPictureController = new GalacticPictureController(galacticPicturesService);
-        galacticPictureController.findDataToNasaApi("2021-08-30");
-        galacticPictureController.findDataToNasaApi("2021-08-31");
-        galacticPictureController.findDataToNasaApi("2021-09-01");
-        galacticPictureController.findDataToNasaApi("2021-09-02");
+
+        Date currentDate = new Date();
+        for (int i = 0; i > -5; i--) {
+            Date beforeToday = addDays(currentDate, i);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            galacticPictureController.getDataFromNasaApi(dateFormat.format(beforeToday));
+        }
+    }
+
+    public static Date addDays(Date date, int days) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days);
+        return cal.getTime();
     }
 }

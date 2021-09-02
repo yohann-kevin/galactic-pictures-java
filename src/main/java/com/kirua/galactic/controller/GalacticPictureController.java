@@ -60,7 +60,7 @@ public class GalacticPictureController {
     }
 
     @GetMapping("/find")
-    public Map findDataToNasaApi(String date) {
+    public Map getDataFromNasaApi(String date) {
         String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
         RestTemplate restTemplate = new RestTemplate();
         Map<String, Object> res = new HashMap<>();
@@ -98,8 +98,7 @@ public class GalacticPictureController {
         data.put("title", node.get("title").asText());
         data.put("description", node.get("explanation").asText());
         data.put("url", node.get("url").asText());
-        data.put("hdurl", node.get("hdurl").asText());
-        if (node.get("copyright") != null) data.put("copyright", node.get("copyright").asText());
+        if (node.get("hdurl") != null) data.put("hdurl", node.get("hdurl").asText());
         data.put("copyright", this.manageCopyright(node));
         data.put("mediaType", node.get("media_type").asText());
         return data;

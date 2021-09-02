@@ -17,4 +17,6 @@ public interface GalacticPicturesDao {
      String seeDescription(String id);
 
      void updatePicture(String id, String name, String description, String date);
+
+     void likePicture(String id);
 }

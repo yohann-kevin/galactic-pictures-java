@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,6 +18,10 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     @Override
     public ArrayList findAll() {
         return (ArrayList) this.galacticPictureRepository.findAll();
+    }
+
+    public Optional<GalacticPictures> findById(UUID id) {
+        return this.galacticPictureRepository.findById(id);
     }
 
     @Override
@@ -41,5 +47,14 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     @Override
     public void updatePicture(String id, String name, String description, String date) {
 
+    }
+
+    @Override
+    public void likePicture(String id) {
+        UUID uid = UUID.fromString(id);
+        Optional<GalacticPictures> pictures = this.findById(uid);
+        int actuallyLike = pictures.get().getToLike();
+        pictures.get().setToLike(actuallyLike + 1);
+        galacticPictureRepository.save(pictures.get());
     }
 }

@@ -69,6 +69,12 @@ public class GalacticPictureController {
         }
     }
 
+    @PostMapping("/like/{uuid}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void likePicture(@PathVariable String uuid) {
+        this.galacticPicturesService.likePicture(uuid);
+    }
+
     public Date addDays(Date date, int days) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);

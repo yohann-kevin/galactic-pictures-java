@@ -49,7 +49,7 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
 
     @Override
     public void add(GalacticPictures galacticPictures) {
-        galacticPictureRepository.save(galacticPictures);
+        this.galacticPictureRepository.save(galacticPictures);
     }
 
     @Override

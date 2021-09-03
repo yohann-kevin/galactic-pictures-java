@@ -16,12 +16,16 @@ spring:
     console:
       enabled: true
 logging:
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
   level:
+    root:
+      root: WARN
     org:
       hibernate:
-#        SQL: DEBUG
+        SQL: DEBUG
         sql:
           BasicBinder: TRACE
   file:
-    name: app.log
-    path: .
+    name: log/app.log

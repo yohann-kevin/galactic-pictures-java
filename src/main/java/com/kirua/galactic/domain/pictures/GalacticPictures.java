@@ -13,6 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 public class GalacticPictures {
     @Id
+    @Column(length = 36)
+    @org.hibernate.annotations.Type(type="uuid-char")
     private UUID id;
     private String date;
     @Column(length = 25000, columnDefinition="LONGTEXT")

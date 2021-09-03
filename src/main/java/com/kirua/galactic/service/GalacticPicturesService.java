@@ -41,4 +41,6 @@ public class GalacticPicturesService {
     public void likePicture(String id) throws InvalidUuidException { galacticPicturesDao.likePicture(id); }
 
     public void donwloadPicture(String id) throws InvalidUuidException { galacticPicturesDao.downloadPicture(id); }
+
+    public void resetAllPictureData() { galacticPicturesDao.resetDataPicture(); }
 }

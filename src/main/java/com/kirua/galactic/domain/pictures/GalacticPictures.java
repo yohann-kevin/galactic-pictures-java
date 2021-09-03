@@ -15,7 +15,7 @@ public class GalacticPictures {
     @Id
     private UUID id;
     private String date;
-    @Column(length = 25000)
+    @Column(length = 25000, columnDefinition="LONGTEXT")
     private String description;
     private String title;
     private String mediaType;

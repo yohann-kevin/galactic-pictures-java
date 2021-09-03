@@ -5,13 +5,13 @@ server:
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:h2:mem:galactic_picture
+    url: jdbc:mysql://localhost:3306/galactic_pictures
     username: root
-    password: root
-    driver-class-name: org.h2.Driver
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
   h2:
     console:
       enabled: true
@@ -19,7 +19,7 @@ logging:
   level:
     org:
       hibernate:
-        SQL: DEBUG
+#        SQL: DEBUG
         sql:
           BasicBinder: TRACE
   file:

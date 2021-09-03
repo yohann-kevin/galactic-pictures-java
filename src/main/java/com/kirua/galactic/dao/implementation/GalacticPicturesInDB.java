@@ -119,4 +119,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
             throw new InvalidUuidException(err);
         }
     }
+
+    @Override
+    public void resetDataPicture() {
+        galacticPictureRepository.deleteAll();
+    }
 }

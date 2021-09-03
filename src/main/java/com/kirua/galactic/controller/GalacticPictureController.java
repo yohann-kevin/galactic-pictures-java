@@ -81,7 +81,7 @@ public class GalacticPictureController {
     @GetMapping("/find")
     public void findDataFromNasaApi() throws PictureNotFoundException {
         Date currentDate = new Date();
-        for (int i = 0; i > -5; i--) {
+        for (int i = 0; i > -30; i--) {
             Date beforeToday = this.addDays(currentDate, i);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.checkIfPictureIsAlreadyExist(dateFormat.format(beforeToday));
@@ -156,4 +156,9 @@ public class GalacticPictureController {
             return node.get("copyright").asText();
         }
     }
+
+//    @DeleteMapping
+//    public void resetPictureData() {
+//        this.galacticPicturesService.resetAllPictureData();
+//    }
 }

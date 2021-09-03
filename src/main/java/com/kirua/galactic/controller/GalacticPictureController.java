@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.InvalidUuidException;
-import com.kirua.galactic.exception.PictureException;
+import com.kirua.galactic.exception.PictureNotFoundException;
 import com.kirua.galactic.service.GalacticPicturesService;
 
 import org.json.JSONObject;
@@ -37,10 +37,16 @@ public class GalacticPictureController {
         return galacticPicturesList;
     }
 
-    @GetMapping("/{date}")
-    public GalacticPictures displayPictureDate(@PathVariable String date) {
+    @GetMapping("/date/{date}")
+    public GalacticPictures displayPictureDate(@PathVariable String date) throws PictureNotFoundException {
         GalacticPictures galacticPicture = this.galacticPicturesService.findByDate(date);
         return galacticPicture;
+    }
+
+    @GetMapping("/id/{uuid}")
+    public GalacticPictures displayPictureById(@PathVariable String uuid) throws PictureNotFoundException {
+        GalacticPictures galacticPictures = this.galacticPicturesService.findById(uuid);
+        return galacticPictures;
     }
 
     @DeleteMapping
@@ -62,7 +68,7 @@ public class GalacticPictureController {
 
     @PostMapping("/like/{uuid}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void likePicture(@PathVariable String uuid) {
+    public void likePicture(@PathVariable String uuid) throws InvalidUuidException {
         this.galacticPicturesService.likePicture(uuid);
     }
 
@@ -73,7 +79,7 @@ public class GalacticPictureController {
     }
 
     @GetMapping("/find")
-    public void findDataFromNasaApi() {
+    public void findDataFromNasaApi() throws PictureNotFoundException {
         Date currentDate = new Date();
         for (int i = 0; i > -5; i--) {
             Date beforeToday = this.addDays(currentDate, i);
@@ -89,7 +95,7 @@ public class GalacticPictureController {
         return cal.getTime();
     }
 
-    public void checkIfPictureIsAlreadyExist(String date) {
+    public void checkIfPictureIsAlreadyExist(String date) throws PictureNotFoundException {
         if (this.displayPictureDate(date) == null) {
             this.getDataFromNasaApi(date);
         } else {

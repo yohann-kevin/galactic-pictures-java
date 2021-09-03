@@ -3,6 +3,7 @@ package com.kirua.galactic.service;
 import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.InvalidUuidException;
+import com.kirua.galactic.exception.PictureNotFoundException;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -24,7 +25,12 @@ public class GalacticPicturesService {
         return galacticPicturesDao.findAll();
     }
 
-    public GalacticPictures findByDate(String date) { return galacticPicturesDao.findByDate(date); }
+    public GalacticPictures findByDate(String date) throws PictureNotFoundException { return galacticPicturesDao.findByDate(date); }
+
+    public GalacticPictures findById(String id) throws PictureNotFoundException {
+        UUID uid = UUID.fromString(id);
+        return galacticPicturesDao.findById(uid);
+    }
 
     public void deleteById(String id) { galacticPicturesDao.deleteById(id); }
 
@@ -32,7 +38,7 @@ public class GalacticPicturesService {
 
     public void updatePicture(String id, String name, String description, String date) { galacticPicturesDao.updatePicture(id, name, description, date); }
 
-    public void likePicture(String id) { galacticPicturesDao.likePicture(id); }
+    public void likePicture(String id) throws InvalidUuidException { galacticPicturesDao.likePicture(id); }
 
     public void donwloadPicture(String id) throws InvalidUuidException { galacticPicturesDao.downloadPicture(id); }
 }

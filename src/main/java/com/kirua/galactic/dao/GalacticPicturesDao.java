@@ -2,14 +2,18 @@ package com.kirua.galactic.dao;
 
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.InvalidUuidException;
+import com.kirua.galactic.exception.PictureNotFoundException;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public interface GalacticPicturesDao {
 
      ArrayList findAll();
 
-     GalacticPictures findByDate(String date);
+     GalacticPictures findByDate(String date) throws PictureNotFoundException;
+
+     GalacticPictures findById(UUID id) throws PictureNotFoundException;
 
      void add(GalacticPictures galacticPictures);
 
@@ -19,7 +23,7 @@ public interface GalacticPicturesDao {
 
      void updatePicture(String id, String name, String description, String date);
 
-     void likePicture(String id);
+     void likePicture(String id) throws InvalidUuidException;
 
      void downloadPicture(String id) throws InvalidUuidException;
 }

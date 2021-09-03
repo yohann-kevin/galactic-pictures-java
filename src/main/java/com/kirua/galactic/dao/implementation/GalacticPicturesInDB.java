@@ -3,13 +3,12 @@ package com.kirua.galactic.dao.implementation;
 import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.InvalidUuidException;
+import com.kirua.galactic.exception.PictureNotFoundException;
 import com.kirua.galactic.repository.GalacticPictureRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -22,13 +21,22 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
         return (ArrayList) this.galacticPictureRepository.findAll();
     }
 
-    public Optional<GalacticPictures> findById(UUID id) {
-        return this.galacticPictureRepository.findById(id);
+    @Override
+    public GalacticPictures findById(UUID id) throws PictureNotFoundException {
+        try {
+            return this.galacticPictureRepository.findById(id).get();
+        } catch (Exception e) {
+            throw new PictureNotFoundException("this picture is not save");
+        }
     }
 
     @Override
-    public GalacticPictures findByDate(String date) {
-        return null;
+    public GalacticPictures findByDate(String date) throws PictureNotFoundException {
+        try {
+            return this.galacticPictureRepository.findByDate(date);
+        } catch (Exception e) {
+            throw new PictureNotFoundException("this picture is not save");
+        }
     }
 
     @Override
@@ -52,24 +60,28 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public void likePicture(String id) {
-        UUID uid = UUID.fromString(id);
-        Optional<GalacticPictures> pictures = this.findById(uid);
-        int actuallyLike = pictures.get().getToLike();
-        pictures.get().setToLike(actuallyLike + 1);
-        galacticPictureRepository.save(pictures.get());
+    public void likePicture(String id) throws InvalidUuidException {
+        try {
+            UUID uid = UUID.fromString(id);
+            GalacticPictures pictures = this.findById(uid);
+            int actuallyLike = pictures.getToLike();
+            pictures.setToLike(actuallyLike + 1);
+            galacticPictureRepository.save(pictures);
+        } catch (Exception e) {
+            throw new InvalidUuidException("this id is invalid id accepted is : uuid");
+        }
     }
 
     @Override
     public void downloadPicture(String id) throws InvalidUuidException {
         try {
             UUID uid = UUID.fromString(id);
-            Optional<GalacticPictures> pictures = this.findById(uid);
-            int numDl = pictures.get().getDownload();
-            pictures.get().setDownload(numDl + 1);
-            galacticPictureRepository.save(pictures.get());
+            GalacticPictures pictures = this.findById(uid);
+            int numDl = pictures.getDownload();
+            pictures.setDownload(numDl + 1);
+            galacticPictureRepository.save(pictures);
         } catch (Exception e) {
-            throw new InvalidUuidException("id invalid");
+            throw new InvalidUuidException("this id is invalid id accepted is : uuid");
         }
     }
 }

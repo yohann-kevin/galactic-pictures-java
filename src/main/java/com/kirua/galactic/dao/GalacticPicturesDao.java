@@ -21,7 +21,7 @@ public interface GalacticPicturesDao {
 
      String seeDescription(String id);
 
-     void updatePicture(String id, String name, String description, String date);
+     void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url);
 
      void likePicture(String id) throws InvalidUuidException;
 

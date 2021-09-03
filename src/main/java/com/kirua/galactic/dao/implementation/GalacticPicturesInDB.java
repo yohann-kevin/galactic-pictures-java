@@ -61,8 +61,17 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public void updatePicture(String id, String name, String description, String date) {
-
+    public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) {
+        UUID uid = UUID.fromString(id);
+        GalacticPictures pictures = this.galacticPictureRepository.findById(uid).get();
+        pictures.setDate(date);
+        pictures.setDescription(description);
+        pictures.setTitle(title);
+        pictures.setMediaType(mediaType);
+        pictures.setCopyright(copyright);
+        pictures.setUrl(url);
+        pictures.setHdurl(hdurl);
+        this.galacticPictureRepository.save(pictures);
     }
 
     @Override

@@ -54,13 +54,6 @@ public class GalacticPictureController {
         this.galacticPicturesService.deleteById(id);
     }
 
-    @GetMapping("/description/{uuid}")
-    public Map<String, String> displayDescription(@PathVariable String uuid) {
-        Map<String, String> description = new HashMap<>();
-        description.put("description", this.galacticPicturesService.seeDescription(uuid));
-        return description;
-    }
-
     @PutMapping
     public void modifyPicture(@RequestParam String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException {
         this.galacticPicturesService.updatePicture(id, date, description, title, mediaType, copyright, hdurl, url);

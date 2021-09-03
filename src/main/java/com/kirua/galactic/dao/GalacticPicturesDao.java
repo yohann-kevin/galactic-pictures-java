@@ -19,8 +19,6 @@ public interface GalacticPicturesDao {
 
      void deleteById(String id) throws PictureNotFoundException;
 
-     String seeDescription(String id);
-
      void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException;
 
      void likePicture(String id) throws InvalidUuidException;

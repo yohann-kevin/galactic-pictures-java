@@ -34,8 +34,6 @@ public class GalacticPicturesService {
 
     public void deleteById(String id) throws PictureNotFoundException { galacticPicturesDao.deleteById(id); }
 
-    public String seeDescription(String id) { return galacticPicturesDao.seeDescription(id); }
-
     public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException { galacticPicturesDao.updatePicture(id, date, description, title, mediaType, copyright, hdurl, url); }
 
     public void likePicture(String id) throws InvalidUuidException { galacticPicturesDao.likePicture(id); }

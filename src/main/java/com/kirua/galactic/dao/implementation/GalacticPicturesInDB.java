@@ -66,11 +66,6 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public String seeDescription(String id) {
-        return null;
-    }
-
-    @Override
     public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException {
         try {
             UUID uid = UUID.fromString(id);

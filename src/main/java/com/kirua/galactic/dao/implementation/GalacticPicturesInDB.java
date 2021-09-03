@@ -122,6 +122,6 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
 
     @Override
     public void resetDataPicture() {
-        galacticPictureRepository.deleteAll();
+        galacticPictureRepository.deleteAllInBatch();
     }
 }

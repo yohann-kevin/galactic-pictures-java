@@ -157,8 +157,8 @@ public class GalacticPictureController {
         }
     }
 
-//    @DeleteMapping
-//    public void resetPictureData() {
-//        this.galacticPicturesService.resetAllPictureData();
-//    }
+    @DeleteMapping("/admin/reset")
+    public void resetPictureData() {
+        this.galacticPicturesService.resetAllPictureData();
+    }
 }

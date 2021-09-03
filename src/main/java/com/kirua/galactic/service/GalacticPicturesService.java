@@ -4,7 +4,6 @@ import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 
 import java.util.ArrayList;
-import java.util.Set;
 import java.util.UUID;
 
 public class GalacticPicturesService {
@@ -33,4 +32,6 @@ public class GalacticPicturesService {
     public void updatePicture(String id, String name, String description, String date) { galacticPicturesDao.updatePicture(id, name, description, date); }
 
     public void likePicture(String id) { galacticPicturesDao.likePicture(id); }
+
+    public void donwloadPicture(String id) { galacticPicturesDao.downloadPicture(id); }
 }

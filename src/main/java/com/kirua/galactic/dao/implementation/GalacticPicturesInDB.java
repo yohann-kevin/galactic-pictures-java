@@ -57,4 +57,13 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
         pictures.get().setToLike(actuallyLike + 1);
         galacticPictureRepository.save(pictures.get());
     }
+
+    @Override
+    public void downloadPicture(String id) {
+        UUID uid = UUID.fromString(id);
+        Optional<GalacticPictures> pictures = this.findById(uid);
+        int numDl = pictures.get().getDownload();
+        pictures.get().setDownload(numDl + 1);
+        galacticPictureRepository.save(pictures.get());
+    }
 }

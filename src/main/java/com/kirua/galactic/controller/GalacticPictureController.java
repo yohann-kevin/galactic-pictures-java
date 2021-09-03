@@ -59,6 +59,18 @@ public class GalacticPictureController {
         this.galacticPicturesService.updatePicture(id, name, description, date);
     }
 
+    @PostMapping("/like/{uuid}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void likePicture(@PathVariable String uuid) {
+        this.galacticPicturesService.likePicture(uuid);
+    }
+
+    @PostMapping("/download/{uuid}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void downloadPicture(@PathVariable String uuid) {
+        this.galacticPicturesService.donwloadPicture(uuid);
+    }
+
     @GetMapping("/find")
     public void findDataFromNasaApi() {
         Date currentDate = new Date();
@@ -67,12 +79,6 @@ public class GalacticPictureController {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.checkIfPictureIsAlreadyExist(dateFormat.format(beforeToday));
         }
-    }
-
-    @PostMapping("/like/{uuid}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void likePicture(@PathVariable String uuid) {
-        this.galacticPicturesService.likePicture(uuid);
     }
 
     public Date addDays(Date date, int days) {

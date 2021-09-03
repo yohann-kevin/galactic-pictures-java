@@ -32,7 +32,7 @@ public class GalacticPicturesService {
         return galacticPicturesDao.findById(uid);
     }
 
-    public void deleteById(String id) { galacticPicturesDao.deleteById(id); }
+    public void deleteById(String id) throws PictureNotFoundException { galacticPicturesDao.deleteById(id); }
 
     public String seeDescription(String id) { return galacticPicturesDao.seeDescription(id); }
 

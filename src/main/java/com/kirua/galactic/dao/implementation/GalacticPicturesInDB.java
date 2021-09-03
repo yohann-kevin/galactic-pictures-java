@@ -45,8 +45,14 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public void deleteById(String id) {
-
+    public void deleteById(String id) throws PictureNotFoundException {
+        UUID uid = UUID.fromString(id);
+        try {
+            GalacticPictures picture = this.galacticPictureRepository.findById(uid).get();
+            this.galacticPictureRepository.delete(picture);
+        } catch (Exception e) {
+            throw new PictureNotFoundException("this picture is not save or already delete");
+        }
     }
 
     @Override

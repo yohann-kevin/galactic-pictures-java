@@ -50,7 +50,7 @@ public class GalacticPictureController {
     }
 
     @DeleteMapping
-    public void deletePicture(@RequestParam(value = "id") String id) {
+    public void deletePicture(@RequestParam(value = "id") String id) throws PictureNotFoundException {
         this.galacticPicturesService.deleteById(id);
     }
 

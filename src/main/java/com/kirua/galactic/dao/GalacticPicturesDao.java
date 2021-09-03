@@ -17,7 +17,7 @@ public interface GalacticPicturesDao {
 
      void add(GalacticPictures galacticPictures);
 
-     void deleteById(String id);
+     void deleteById(String id) throws PictureNotFoundException;
 
      String seeDescription(String id);
 

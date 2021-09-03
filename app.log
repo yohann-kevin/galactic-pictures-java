@@ -1,0 +1,116 @@
+2021-09-03 10:53:08.674  INFO 19784 --- [main] com.kirua.galactic.Main                  : Starting Main using Java 15.0.2 on LAPTOP-EDQH4ASC with PID 19784 (C:\Users\kirua\IdeaProjects\daily-galactic-pictures\target\classes started by kirua in C:\Users\kirua\IdeaProjects\daily-galactic-pictures)
+2021-09-03 10:53:08.676  INFO 19784 --- [main] com.kirua.galactic.Main                  : No active profile set, falling back to default profiles: default
+2021-09-03 10:53:09.128  INFO 19784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-03 10:53:09.164  INFO 19784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 1 JPA repository interfaces.
+2021-09-03 10:53:09.472  INFO 19784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-09-03 10:53:09.477  INFO 19784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-03 10:53:09.478  INFO 19784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-03 10:53:09.592  INFO 19784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-03 10:53:09.592  INFO 19784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 880 ms
+2021-09-03 10:53:09.610  INFO 19784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-03 10:53:09.669  INFO 19784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-03 10:53:09.672  INFO 19784 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:galactic_picture'
+2021-09-03 10:53:09.757  INFO 19784 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-03 10:53:09.786  INFO 19784 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-03 10:53:09.851  INFO 19784 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-03 10:53:09.921  INFO 19784 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-09-03 10:53:10.234 DEBUG 19784 --- [main] org.hibernate.SQL                        : drop table if exists galactic_pictures CASCADE 
+2021-09-03 10:53:10.237 DEBUG 19784 --- [main] org.hibernate.SQL                        : create table galactic_pictures (id binary not null, copyright varchar(255), date varchar(255), description varchar(25000), download integer not null, hdurl varchar(255), media_type varchar(255), title varchar(255), to_like integer not null, url varchar(255), primary key (id))
+2021-09-03 10:53:10.242  INFO 19784 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-03 10:53:10.249  INFO 19784 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-03 10:53:10.481  WARN 19784 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-03 10:53:10.677  INFO 19784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/api'
+2021-09-03 10:53:10.685  INFO 19784 --- [main] com.kirua.galactic.Main                  : Started Main in 2.355 seconds (JVM running for 2.855)
+2021-09-03 10:53:10.757 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_ where galacticpi0_.date=?
+2021-09-03 10:53:12.455 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:12.470 DEBUG 19784 --- [main] org.hibernate.SQL                        : insert into galactic_pictures (copyright, date, description, download, hdurl, media_type, title, to_like, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-09-03 10:53:12.474 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_ where galacticpi0_.date=?
+2021-09-03 10:53:12.666 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:12.668 DEBUG 19784 --- [main] org.hibernate.SQL                        : insert into galactic_pictures (copyright, date, description, download, hdurl, media_type, title, to_like, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-09-03 10:53:12.669 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_ where galacticpi0_.date=?
+2021-09-03 10:53:12.894 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:12.895 DEBUG 19784 --- [main] org.hibernate.SQL                        : insert into galactic_pictures (copyright, date, description, download, hdurl, media_type, title, to_like, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-09-03 10:53:12.896 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_ where galacticpi0_.date=?
+2021-09-03 10:53:13.087 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:13.088 DEBUG 19784 --- [main] org.hibernate.SQL                        : insert into galactic_pictures (copyright, date, description, download, hdurl, media_type, title, to_like, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-09-03 10:53:13.089 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_ where galacticpi0_.date=?
+2021-09-03 10:53:13.299 DEBUG 19784 --- [main] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:13.300 DEBUG 19784 --- [main] org.hibernate.SQL                        : insert into galactic_pictures (copyright, date, description, download, hdurl, media_type, title, to_like, url, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-09-03 10:53:24.733  INFO 19784 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-03 10:53:24.733  INFO 19784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-03 10:53:24.734  INFO 19784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-09-03 10:53:27.342 DEBUG 19784 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_
+2021-09-03 10:53:42.974 DEBUG 19784 --- [http-nio-8081-exec-7] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_0_, galacticpi0_.copyright as copyrigh2_0_0_, galacticpi0_.date as date3_0_0_, galacticpi0_.description as descript4_0_0_, galacticpi0_.download as download5_0_0_, galacticpi0_.hdurl as hdurl6_0_0_, galacticpi0_.media_type as media_ty7_0_0_, galacticpi0_.title as title8_0_0_, galacticpi0_.to_like as to_like9_0_0_, galacticpi0_.url as url10_0_0_ from galactic_pictures galacticpi0_ where galacticpi0_.id=?
+2021-09-03 10:53:42.979 ERROR 19784 --- [http-nio-8081-exec-7] c.k.g.d.i.GalacticPicturesInDB           : this picture is not save. error : java.util.NoSuchElementException: No value present
+2021-09-03 10:53:42.990 ERROR 19784 --- [http-nio-8081-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed; nested exception is com.kirua.galactic.exception.PictureNotFoundException: this picture is not save. error : java.util.NoSuchElementException: No value present] with root cause
+
+com.kirua.galactic.exception.PictureNotFoundException: this picture is not save. error : java.util.NoSuchElementException: No value present
+	at com.kirua.galactic.dao.implementation.GalacticPicturesInDB.findById(GalacticPicturesInDB.java:35) ~[classes/:na]
+	at com.kirua.galactic.dao.implementation.GalacticPicturesInDB$$FastClassBySpringCGLIB$$9f5ba2f9.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.kirua.galactic.dao.implementation.GalacticPicturesInDB$$EnhancerBySpringCGLIB$$cf6be086.findById(<generated>) ~[classes/:na]
+	at com.kirua.galactic.service.GalacticPicturesService.findById(GalacticPicturesService.java:32) ~[classes/:na]
+	at com.kirua.galactic.controller.GalacticPictureController.displayPictureById(GalacticPictureController.java:48) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+
+2021-09-03 10:54:17.773  INFO 19784 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-03 10:54:17.773  INFO 19784 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-09-03 10:54:17.773 DEBUG 19784 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : drop table if exists galactic_pictures CASCADE 
+2021-09-03 10:54:17.777  INFO 19784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-09-03 10:54:17.778  INFO 19784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

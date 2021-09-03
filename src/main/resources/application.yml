@@ -22,3 +22,6 @@ logging:
         SQL: DEBUG
         sql:
           BasicBinder: TRACE
+  file:
+    name: app.log
+    path: .

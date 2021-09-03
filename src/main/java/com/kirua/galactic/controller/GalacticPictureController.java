@@ -62,7 +62,7 @@ public class GalacticPictureController {
     }
 
     @PutMapping
-    public void modifyPicture(@RequestParam String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) {
+    public void modifyPicture(@RequestParam String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException {
         this.galacticPicturesService.updatePicture(id, date, description, title, mediaType, copyright, hdurl, url);
     }
 

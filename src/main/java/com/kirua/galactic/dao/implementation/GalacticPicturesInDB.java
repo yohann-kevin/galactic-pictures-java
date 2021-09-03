@@ -6,6 +6,8 @@ import com.kirua.galactic.exception.InvalidUuidException;
 import com.kirua.galactic.exception.PictureNotFoundException;
 import com.kirua.galactic.repository.GalacticPictureRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class GalacticPicturesInDB implements GalacticPicturesDao {
     private final GalacticPictureRepository galacticPictureRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     public ArrayList findAll() {
@@ -26,7 +30,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
         try {
             return this.galacticPictureRepository.findById(id).get();
         } catch (Exception e) {
-            throw new PictureNotFoundException("this picture is not save");
+            String err = "this picture is not save. error : " + e;
+            logger.error(err);
+            throw new PictureNotFoundException(err);
         }
     }
 
@@ -35,7 +41,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
         try {
             return this.galacticPictureRepository.findByDate(date);
         } catch (Exception e) {
-            throw new PictureNotFoundException("this picture is not save");
+            String err = "this picture is not save. error : " + e;
+            logger.error(err);
+            throw new PictureNotFoundException(err);
         }
     }
 
@@ -51,7 +59,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
             GalacticPictures picture = this.galacticPictureRepository.findById(uid).get();
             this.galacticPictureRepository.delete(picture);
         } catch (Exception e) {
-            throw new PictureNotFoundException("this picture is not save or already delete");
+            String err = "this picture is not save or already delete. error : " + e;
+            logger.error(err);
+            throw new PictureNotFoundException(err);
         }
     }
 
@@ -61,17 +71,23 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) {
-        UUID uid = UUID.fromString(id);
-        GalacticPictures pictures = this.galacticPictureRepository.findById(uid).get();
-        pictures.setDate(date);
-        pictures.setDescription(description);
-        pictures.setTitle(title);
-        pictures.setMediaType(mediaType);
-        pictures.setCopyright(copyright);
-        pictures.setUrl(url);
-        pictures.setHdurl(hdurl);
-        this.galacticPictureRepository.save(pictures);
+    public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException {
+        try {
+            UUID uid = UUID.fromString(id);
+            GalacticPictures pictures = this.galacticPictureRepository.findById(uid).get();
+            pictures.setDate(date);
+            pictures.setDescription(description);
+            pictures.setTitle(title);
+            pictures.setMediaType(mediaType);
+            pictures.setCopyright(copyright);
+            pictures.setUrl(url);
+            pictures.setHdurl(hdurl);
+            this.galacticPictureRepository.save(pictures);
+        } catch (Exception e) {
+            String err = "this picture is not save" + e;
+            logger.error(err);
+            throw new PictureNotFoundException(err);
+        }
     }
 
     @Override
@@ -83,7 +99,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
             pictures.setToLike(actuallyLike + 1);
             galacticPictureRepository.save(pictures);
         } catch (Exception e) {
-            throw new InvalidUuidException("this id is invalid id accepted is : uuid");
+            String err = "this id is invalid id accepted is : uuid. error" + e;
+            logger.error(err);
+            throw new InvalidUuidException(err);
         }
     }
 
@@ -96,7 +114,9 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
             pictures.setDownload(numDl + 1);
             galacticPictureRepository.save(pictures);
         } catch (Exception e) {
-            throw new InvalidUuidException("this id is invalid id accepted is : uuid");
+            String err = "this id is invalid id accepted is : uuid. error" + e;
+            logger.error(err);
+            throw new InvalidUuidException(err);
         }
     }
 }

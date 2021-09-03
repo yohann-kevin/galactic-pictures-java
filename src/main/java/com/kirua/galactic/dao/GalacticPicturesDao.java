@@ -1,6 +1,7 @@
 package com.kirua.galactic.dao;
 
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.exception.InvalidUuidException;
 
 import java.util.ArrayList;
 
@@ -20,5 +21,5 @@ public interface GalacticPicturesDao {
 
      void likePicture(String id);
 
-     void downloadPicture(String id);
+     void downloadPicture(String id) throws InvalidUuidException;
 }

@@ -2,10 +2,12 @@ package com.kirua.galactic.dao.implementation;
 
 import com.kirua.galactic.dao.GalacticPicturesDao;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.exception.InvalidUuidException;
 import com.kirua.galactic.repository.GalacticPictureRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
@@ -59,11 +61,15 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
-    public void downloadPicture(String id) {
-        UUID uid = UUID.fromString(id);
-        Optional<GalacticPictures> pictures = this.findById(uid);
-        int numDl = pictures.get().getDownload();
-        pictures.get().setDownload(numDl + 1);
-        galacticPictureRepository.save(pictures.get());
+    public void downloadPicture(String id) throws InvalidUuidException {
+        try {
+            UUID uid = UUID.fromString(id);
+            Optional<GalacticPictures> pictures = this.findById(uid);
+            int numDl = pictures.get().getDownload();
+            pictures.get().setDownload(numDl + 1);
+            galacticPictureRepository.save(pictures.get());
+        } catch (Exception e) {
+            throw new InvalidUuidException("id invalid");
+        }
     }
 }

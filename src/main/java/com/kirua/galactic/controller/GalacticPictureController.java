@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.exception.InvalidUuidException;
 import com.kirua.galactic.exception.PictureException;
 import com.kirua.galactic.service.GalacticPicturesService;
 
@@ -67,7 +68,7 @@ public class GalacticPictureController {
 
     @PostMapping("/download/{uuid}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void downloadPicture(@PathVariable String uuid) {
+    public void downloadPicture(@PathVariable String uuid) throws InvalidUuidException {
         this.galacticPicturesService.donwloadPicture(uuid);
     }
 

@@ -1,3 +1,6 @@
+java:
+  runtime:
+    version: 11
 server:
   port: 8081
   servlet:

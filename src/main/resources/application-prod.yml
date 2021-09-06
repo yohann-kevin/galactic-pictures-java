@@ -11,10 +11,9 @@ spring:
       ddl-auto: update
     show-sql: true
   datasource:
-#    url: jdbc:mysql://bd030a09c8d96e:b6dc36b9@us-cdbr-east-04.cleardb.com/heroku_79d14f73bf167e0?reconnect=true
+    url: jdbc:mysql://bd030a09c8d96e:b6dc36b9@us-cdbr-east-04.cleardb.com/heroku_79d14f73bf167e0?reconnect=true
     username: b05659997931f7
     password: 359da790
-    url: us-cdbr-east-04.cleardb.com/heroku_79d14f73bf167e0
   #    driver-class-name: com.mysql.cj.jdbc.Driver
   h2:
     console:

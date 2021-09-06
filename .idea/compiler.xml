@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="daily-galactic-pictures" target="11" />
+      <module name="daily-galactic-pictures" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

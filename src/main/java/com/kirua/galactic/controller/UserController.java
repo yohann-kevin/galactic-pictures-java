@@ -14,7 +14,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("/sign-up")
     public void add(@RequestParam String pseudo, String email, String password, boolean isAdmin, boolean isModerator) {
         this.userService.add(pseudo, email, password, isAdmin, isModerator);
     }

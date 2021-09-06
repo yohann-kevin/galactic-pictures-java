@@ -1,24 +1,28 @@
-2021-09-04 16:20:22.543  INFO 13120 --- [main] com.kirua.galactic.Main                  : Starting Main using Java 15.0.2 on LAPTOP-EDQH4ASC with PID 13120 (C:\Users\kirua\IdeaProjects\daily-galactic-pictures\target\classes started by kirua in C:\Users\kirua\IdeaProjects\daily-galactic-pictures)
-2021-09-04 16:20:22.552  INFO 13120 --- [main] com.kirua.galactic.Main                  : No active profile set, falling back to default profiles: default
-2021-09-04 16:20:23.132  INFO 13120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-09-04 16:20:23.178  INFO 13120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
-2021-09-04 16:20:23.525  INFO 13120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-09-04 16:20:23.532  INFO 13120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-09-04 16:20:23.533  INFO 13120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2021-09-04 16:20:23.625  INFO 13120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2021-09-04 16:20:23.626  INFO 13120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1036 ms
-2021-09-04 16:20:23.648  INFO 13120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-09-04 16:20:23.952  INFO 13120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-09-04 16:20:23.956  INFO 13120 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/galactic_pictures'
-2021-09-04 16:20:24.072  INFO 13120 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-09-04 16:20:24.125  INFO 13120 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-09-04 16:20:24.262  INFO 13120 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-09-04 16:20:24.351  INFO 13120 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2021-09-04 16:20:24.773  INFO 13120 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-09-04 16:20:24.779  INFO 13120 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-04 16:20:25.048  WARN 13120 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-04 16:20:25.264  INFO 13120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/api'
-2021-09-04 16:20:25.272  INFO 13120 --- [main] com.kirua.galactic.Main                  : Started Main in 3.126 seconds (JVM running for 3.837)
-2021-09-04 16:20:56.080  INFO 13120 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-04 16:20:56.082  INFO 13120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-09-04 16:20:56.089  INFO 13120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-09-06 08:57:38.289  INFO 8044 --- [main] com.kirua.galactic.Main                  : Starting Main using Java 15.0.2 on LAPTOP-EDQH4ASC with PID 8044 (C:\Users\kirua\IdeaProjects\daily-galactic-pictures\target\classes started by kirua in C:\Users\kirua\IdeaProjects\daily-galactic-pictures)
+2021-09-06 08:57:38.294  INFO 8044 --- [main] com.kirua.galactic.Main                  : No active profile set, falling back to default profiles: default
+2021-09-06 08:57:38.742  INFO 8044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-06 08:57:38.786  INFO 8044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2021-09-06 08:57:39.159  INFO 8044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-09-06 08:57:39.168  INFO 8044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-06 08:57:39.168  INFO 8044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-06 08:57:39.276  INFO 8044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-06 08:57:39.277  INFO 8044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 953 ms
+2021-09-06 08:57:39.303  INFO 8044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-06 08:57:39.617  INFO 8044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-06 08:57:39.620  INFO 8044 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/galactic_pictures'
+2021-09-06 08:57:39.703  INFO 8044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-06 08:57:39.730  INFO 8044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-06 08:57:39.814  INFO 8044 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-06 08:57:39.898  INFO 8044 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-09-06 08:57:40.253  INFO 8044 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-06 08:57:40.260  INFO 8044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 08:57:40.514  WARN 8044 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-06 08:57:40.716  INFO 8044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/api'
+2021-09-06 08:57:40.724  INFO 8044 --- [main] com.kirua.galactic.Main                  : Started Main in 2.924 seconds (JVM running for 3.66)
+2021-09-06 08:57:46.257  INFO 8044 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-06 08:57:46.257  INFO 8044 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-06 08:57:46.258  INFO 8044 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-09-06 08:57:46.336 DEBUG 8044 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : select galacticpi0_.id as id1_0_, galacticpi0_.copyright as copyrigh2_0_, galacticpi0_.date as date3_0_, galacticpi0_.description as descript4_0_, galacticpi0_.download as download5_0_, galacticpi0_.hdurl as hdurl6_0_, galacticpi0_.media_type as media_ty7_0_, galacticpi0_.title as title8_0_, galacticpi0_.to_like as to_like9_0_, galacticpi0_.url as url10_0_ from galactic_pictures galacticpi0_
+2021-09-06 08:57:55.572  INFO 8044 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 08:57:55.575  INFO 8044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-09-06 08:57:55.583  INFO 8044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -12,9 +12,4 @@ public class BeanConfig {
     GalacticPicturesService galacticPicturesService(GalacticPicturesDao galacticPicturesDao) {
         return new GalacticPicturesService(galacticPicturesDao);
     }
-
-//    @Bean
-//    UserService userService() {
-//        return new UserService();
-//    }
 }

@@ -22,11 +22,6 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-//    public void add(String pseudo, String email, String password) {
-//        User newUser = new User(UUID.randomUUID(), pseudo, email, password);
-//        this.userDao.add(newUser);
-//    }
-//
     public ArrayList findAll() {
         return (ArrayList) this.userRepository.findAll();
     }

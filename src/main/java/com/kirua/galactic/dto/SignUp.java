@@ -1,0 +1,9 @@
+package com.kirua.galactic.dto;
+
+import lombok.Data;
+
+@Data
+public class SignUp {
+    private String login;
+    private String password;
+}

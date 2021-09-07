@@ -1,6 +1,8 @@
 package com.kirua.galactic.controller;
 
+import com.kirua.galactic.dto.SignUp;
 import com.kirua.galactic.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,13 +16,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/sign-up")
-    public void add(@RequestParam String pseudo, String email, String password, boolean isAdmin, boolean isModerator) {
-        this.userService.add(pseudo, email, password);
-    }
-
     @GetMapping
     public ArrayList findAll() {
         return this.userService.findAll();
+    }
+
+    @PostMapping("/sign-up")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void signUp(@RequestBody SignUp signUp) {
+        this.userService.signUp(signUp);
     }
 }

@@ -13,9 +13,9 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public void add(String pseudo, String email, String password, boolean isAdmin, boolean isModerator) {
-//        User newUser = new User(UUID.randomUUID(), pseudo, email, this.passwordEncoder.encode(password), isAdmin, isModerator);
-        User newUser = new User(UUID.randomUUID(), pseudo, email, password, isAdmin, isModerator);
+    public void add(String pseudo, String email, String password) {
+//        User newUser = new User(UUID.randomUUID(), pseudo, email, this.passwordEncoder.encode(password));
+        User newUser = new User(UUID.randomUUID(), pseudo, email, password);
         this.userDao.add(newUser);
     }
 

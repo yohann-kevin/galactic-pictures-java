@@ -22,12 +22,10 @@ public class User {
     private boolean isAdmin;
     private boolean isModerator;
 
-    public User(UUID id, String pseudo, String email, String password, boolean isAdmin, boolean isModerator) {
+    public User(UUID id, String pseudo, String email, String password) {
         this.id = id;
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
-        this.isModerator = isModerator;
     }
 }

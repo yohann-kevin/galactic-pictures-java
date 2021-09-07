@@ -15,7 +15,7 @@ public class GalacticPicturesService {
         this.galacticPicturesDao = galacticPicturesDao;
     }
 
-    public GalacticPictures add(String date, String description, String name, String copyright, String mediaType, String url, String hdurl) {
+    public GalacticPictures add(String date, String description, String name, String copyright, String mediaType, String hdurl, String url) {
         GalacticPictures newPictures = new GalacticPictures(UUID.randomUUID(), date, description, name, mediaType, copyright, hdurl, url);
         galacticPicturesDao.add(newPictures);
         return newPictures;

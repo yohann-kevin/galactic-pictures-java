@@ -1,6 +1,5 @@
 package com.kirua.galactic.security;
 
-//import com.kirua.galactic.domain.user.User;
 import com.kirua.galactic.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 

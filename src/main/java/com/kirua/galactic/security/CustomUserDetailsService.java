@@ -16,8 +16,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        com.kirua.galactic.domain.user.User user = this.userRepository.findPersonByLogin(login)
-                .orElseThrow(() -> new UsernameNotFoundException(login));
+        com.kirua.galactic.domain.user.User user = this.userRepository.findPersonByLogin(login);
+//                .orElseThrow(() -> new UsernameNotFoundException(login));
 
         UserDetails userDetails = User.builder()
                 .username(user.getLogin())

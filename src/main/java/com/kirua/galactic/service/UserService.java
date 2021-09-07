@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,5 +34,9 @@ public class UserService {
                 .build();
         userRepository.save(person);
         logger.info("New subscription : login={}", person.getLogin());
+    }
+
+    public User getUserByName(String name) {
+        return this.userRepository.findPersonByLogin(name);
     }
 }

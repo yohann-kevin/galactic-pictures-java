@@ -10,9 +10,12 @@ import com.kirua.galactic.service.GalacticPicturesService;
 
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -132,7 +135,6 @@ public class GalacticPictureController {
                 data.get("hdurl"),
                 data.get("url")
         );
-
 
         return res;
     }

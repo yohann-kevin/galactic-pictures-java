@@ -31,9 +31,10 @@ public class Comment {
     @JoinColumn(name = "picture_id", nullable = false)
     private GalacticPictures galacticPictures;
 
-    public Comment(String content, User user, GalacticPictures galacticPictures) {
-        this.content = content;
-        this.user = user;
-        this.galacticPictures = galacticPictures;
-    }
+//    public Comment(UUID id, String content, User user, GalacticPictures galacticPictures) {
+//        this.id = id;
+//        this.content = content;
+//        this.user = user;
+//        this.galacticPictures = galacticPictures;
+//    }
 }

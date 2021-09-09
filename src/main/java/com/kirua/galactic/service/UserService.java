@@ -26,12 +26,13 @@ public class UserService {
     }
 
     public void signUp(SignUp signUp) {
-        User person = User.builder()
-                .id(UUID.randomUUID())
-                .login(signUp.getLogin())
-                .password(passwordEncoder.encode(signUp.getPassword()))
-                .role("USER")
-                .build();
+//        User person = User.builder()
+//                .id(UUID.randomUUID())
+//                .login(signUp.getLogin())
+//                .password(passwordEncoder.encode(signUp.getPassword()))
+//                .role("USER")
+//                .build();
+        User person = new User(UUID.randomUUID(), signUp.getLogin(), passwordEncoder.encode(signUp.getPassword()), "USER");
         userRepository.save(person);
         logger.info("New subscription : login={}", person.getLogin());
     }

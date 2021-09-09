@@ -14,7 +14,7 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class User {
     @Id
     @Column(length = 36)
@@ -24,4 +24,11 @@ public class User {
     @Column(unique=true)
     private String login;
     private String role;
+
+    public User(UUID id, String password, String login, String role) {
+        this.id = id;
+        this.password = password;
+        this.login = login;
+        this.role = role;
+    }
 }

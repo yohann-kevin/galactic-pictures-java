@@ -1,6 +1,8 @@
 package com.kirua.galactic.config;
 
+import com.kirua.galactic.dao.FavoriteDao;
 import com.kirua.galactic.dao.GalacticPicturesDao;
+import com.kirua.galactic.service.FavoriteService;
 import com.kirua.galactic.service.GalacticPicturesService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,4 +14,9 @@ public class BeanConfig {
     GalacticPicturesService galacticPicturesService(GalacticPicturesDao galacticPicturesDao) {
         return new GalacticPicturesService(galacticPicturesDao);
     }
+
+//    @Bean
+//    FavoriteService favoriteService(FavoriteDao favoriteDao) {
+//        return new FavoriteService(favoriteDao);
+//    }
 }

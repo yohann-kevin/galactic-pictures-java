@@ -4,14 +4,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.domain.user.User;
 import com.kirua.galactic.exception.InvalidUuidException;
 import com.kirua.galactic.exception.PictureNotFoundException;
+import com.kirua.galactic.service.FavoriteService;
 import com.kirua.galactic.service.GalacticPicturesService;
 
+import com.kirua.galactic.service.UserService;
+import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,13 +23,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/picture")
 public class GalacticPictureController {
     private GalacticPicturesService galacticPicturesService;
 
-    public GalacticPictureController(GalacticPicturesService galacticPicturesService) {
-        this.galacticPicturesService = galacticPicturesService;
-    }
+    private FavoriteService favoriteService;
+    private UserService userService;
+
+//    public GalacticPictureController(GalacticPicturesService galacticPicturesService) {
+//        this.galacticPicturesService = galacticPicturesService;
+//    }
 
     @GetMapping("/production/check")
     public HashMap<String, Boolean> checkProductionWork() {
@@ -71,8 +78,11 @@ public class GalacticPictureController {
 
     @PostMapping("/like/{uuid}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void likePicture(@PathVariable String uuid) throws InvalidUuidException {
+    public void likePicture(@PathVariable String uuid, Principal principal) throws InvalidUuidException, PictureNotFoundException {
         this.galacticPicturesService.likePicture(uuid);
+        GalacticPictures galacticPictures = this.galacticPicturesService.findById(uuid);
+        User currentUser = this.userService.getUserByName(principal.getName());
+        this.favoriteService.add(currentUser, galacticPictures);
     }
 
     @PostMapping("/download/{uuid}")

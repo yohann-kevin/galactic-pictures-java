@@ -169,7 +169,7 @@ public class GalacticPictureController {
         }
     }
 
-    @DeleteMapping("/admin/reset")
+    @GetMapping("/admin/reset")
     public void resetPictureData() {
         this.galacticPicturesService.resetAllPictureData();
     }

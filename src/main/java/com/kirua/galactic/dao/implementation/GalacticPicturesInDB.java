@@ -22,7 +22,7 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
 
     @Override
     public ArrayList findAll() {
-        return (ArrayList) this.galacticPictureRepository.findAll();
+        return (ArrayList) this.galacticPictureRepository.findAllByOrderByDateDesc();
     }
 
     @Override

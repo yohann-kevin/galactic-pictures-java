@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.text.SimpleDateFormat;
@@ -91,13 +92,16 @@ public class GalacticPictureController {
     }
 
     @GetMapping("/find")
-    public void findDataFromNasaApi() throws PictureNotFoundException {
+    public RedirectView findDataFromNasaApi() throws PictureNotFoundException {
         Date currentDate = new Date();
         for (int i = 0; i > -30; i--) {
             Date beforeToday = this.addDays(currentDate, i);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.checkIfPictureIsAlreadyExist(dateFormat.format(beforeToday));
         }
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("/api/picture");
+        return redirectView;
     }
 
     public Date addDays(Date date, int days) {
@@ -115,7 +119,7 @@ public class GalacticPictureController {
         }
     }
 
-    public Map getDataFromNasaApi(String date) {
+    public void getDataFromNasaApi(String date) {
         Map<String, Object> res = new HashMap<>();
         String url = "https://api.nasa.gov/planetary/apod?api_key=NdLqdh0xJbsHOWvyYYymFKGQbGG8OMPoESNw2ZFh&date=" + date;
         RestTemplate restTemplate = new RestTemplate();
@@ -144,8 +148,6 @@ public class GalacticPictureController {
                 data.get("hdurl"),
                 data.get("url")
         );
-
-        return res;
     }
 
     public Map formatNasaData(JsonNode node) {

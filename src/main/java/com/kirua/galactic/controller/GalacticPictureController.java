@@ -140,8 +140,8 @@ public class GalacticPictureController {
                 data.get("date"),
                 data.get("description"),
                 data.get("title"),
-                data.get("mediaType"),
                 data.get("copyright"),
+                data.get("mediaType"),
                 data.get("hdurl"),
                 data.get("url")
         );

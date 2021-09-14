@@ -1,6 +1,5 @@
 package com.kirua.galactic.controller;
 
-import com.kirua.galactic.domain.comment.Comment;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.domain.user.User;
 import com.kirua.galactic.exception.PictureNotFoundException;

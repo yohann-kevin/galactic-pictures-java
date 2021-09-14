@@ -17,10 +17,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/sign-up").permitAll()
-//                .antMatchers("/picture/admin/reset").permitAll()
                 .antMatchers(HttpMethod.GET, "/picture").permitAll()
                 .antMatchers("/picture/find").hasRole("ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/picture/admin/reset").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .formLogin();

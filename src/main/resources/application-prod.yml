@@ -1,7 +1,7 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
   datasource:
     url: jdbc:mysql://bd030a09c8d96e:b6dc36b9@us-cdbr-east-04.cleardb.com/heroku_79d14f73bf167e0?reconnect=true

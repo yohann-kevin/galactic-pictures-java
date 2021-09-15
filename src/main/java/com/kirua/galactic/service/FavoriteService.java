@@ -25,4 +25,8 @@ public class FavoriteService {
     public ArrayList<Object> findFavoriteByUser(User user) {
         return this.favoriteDao.findFavoritesPictureByUser(user);
     }
+
+    public void unlikePictureById(String id) {
+        this.favoriteDao.deleteFavoritePictureById(id);
+    }
 }

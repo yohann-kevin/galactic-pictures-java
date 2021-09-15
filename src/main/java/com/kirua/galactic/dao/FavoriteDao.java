@@ -9,4 +9,6 @@ public interface FavoriteDao {
     void add(Favorite favorite);
 
     ArrayList<Object> findFavoritesPictureByUser(User user);
+
+    void deleteFavoritePictureById(String id);
 }

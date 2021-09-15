@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -31,5 +32,10 @@ public class FavoriteInDB implements FavoriteDao {
             sortedList.add(details);
         }
         return sortedList;
+    }
+
+    public void deleteFavoritePictureById(String id) {
+        UUID uid = UUID.fromString(id);
+        this.favoriteRepository.deleteById(uid);
     }
 }

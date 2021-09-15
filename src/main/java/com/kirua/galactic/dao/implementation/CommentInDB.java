@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -38,5 +39,11 @@ public class CommentInDB implements CommentDao {
             sortedList.add(details);
         }
         return sortedList;
+    }
+
+    @Override
+    public void deletePictureById(String id) {
+        UUID uid = UUID.fromString(id);
+        this.commentRepository.deleteById(uid);
     }
 }

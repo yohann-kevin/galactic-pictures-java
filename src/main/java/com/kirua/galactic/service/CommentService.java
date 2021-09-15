@@ -26,4 +26,8 @@ public class CommentService {
     public ArrayList<Object> findCommentByGalacticPicture(GalacticPictures picture) {
         return this.commentDao.findByPictureId(picture);
     }
+
+    public void deleteCommentById(String id) {
+        this.commentDao.deletePictureById(id);
+    }
 }

@@ -11,4 +11,6 @@ public interface CommentDao {
     ArrayList findAll();
 
     ArrayList findByPictureId(GalacticPictures picture);
+
+    void deletePictureById(String id);
 }

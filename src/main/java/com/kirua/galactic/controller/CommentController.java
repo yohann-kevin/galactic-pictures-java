@@ -36,4 +36,9 @@ public class CommentController {
         GalacticPictures currentPicture = this.galacticPicturesService.findById(pictureId);
         return this.commentService.findCommentByGalacticPicture(currentPicture);
     }
+
+    @DeleteMapping
+    public void deleteCommentById(@RequestParam(value = "id") String id) {
+        this.commentService.deleteCommentById(id);
+    }
 }

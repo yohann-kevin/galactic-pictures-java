@@ -33,6 +33,7 @@ public class UserController {
 
     @GetMapping("current-user")
     public HashMap findCurrentUser() {
+//        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = this.getUserByName(username);
         HashMap userInfo = new HashMap();

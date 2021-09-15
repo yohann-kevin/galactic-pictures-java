@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/picture/admin/reset").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
-                .formLogin();
+                .formLogin()
+                .defaultSuccessUrl("/user/current-user");
     }
 }

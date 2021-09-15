@@ -33,7 +33,7 @@ public class UserService {
 //                .password(passwordEncoder.encode(signUp.getPassword()))
 //                .role("USER")
 //                .build();
-        User person = new User(UUID.randomUUID(), passwordEncoder.encode(signUp.getPassword()), signUp.getLogin(), "ADMIN");
+        User person = new User(UUID.randomUUID(), passwordEncoder.encode(signUp.getPassword()), signUp.getLogin(), "USER");
         userRepository.save(person);
         logger.info("New subscription : login={}", person.getLogin());
     }

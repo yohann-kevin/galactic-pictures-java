@@ -31,10 +31,6 @@ public class GalacticPictureController {
     private FavoriteService favoriteService;
     private UserService userService;
 
-//    public GalacticPictureController(GalacticPicturesService galacticPicturesService) {
-//        this.galacticPicturesService = galacticPicturesService;
-//    }
-
     @GetMapping("/production/check")
     public HashMap<String, Boolean> checkProductionWork() {
         HashMap<String, Boolean> response = new HashMap<>();

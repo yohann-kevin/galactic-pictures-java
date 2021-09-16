@@ -9,6 +9,8 @@ server:
   port: 8081
   servlet:
     contextPath: /api
+  error:
+    include-message: always
 spring:
   jpa:
     hibernate:
@@ -36,3 +38,8 @@ logging:
           BasicBinder: TRACE
   file:
     name: log/app.log
+app:
+  security:
+    jwt:
+      secret: secret
+      expirationInSeconds: 864000

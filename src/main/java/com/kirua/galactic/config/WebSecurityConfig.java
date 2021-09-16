@@ -42,6 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         jwtAuthFilter,
                         UsernamePasswordAuthenticationFilter.class
                 );
+
+                http.cors();
     }
 
     @Override @Bean

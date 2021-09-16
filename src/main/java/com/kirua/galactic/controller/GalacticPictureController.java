@@ -22,7 +22,6 @@ import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/picture")

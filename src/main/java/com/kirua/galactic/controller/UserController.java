@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -41,7 +40,6 @@ public class UserController {
         userInfo.put("id", currentUser.getId());
         userInfo.put("login", currentUser.getLogin());
         userInfo.put("role", currentUser.getRole());
-        userInfo.put("session_id", session.getId());
         return userInfo;
     }
 

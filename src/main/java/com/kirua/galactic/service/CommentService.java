@@ -27,6 +27,10 @@ public class CommentService {
         return this.commentDao.findByPictureId(picture);
     }
 
+    public ArrayList findCommentByUser(User user) {
+        return this.commentDao.findPictureByUser(user);
+    }
+
     public void deleteCommentById(String id) {
         this.commentDao.deletePictureById(id);
     }

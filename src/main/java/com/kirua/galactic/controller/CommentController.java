@@ -37,6 +37,12 @@ public class CommentController {
         return this.commentService.findCommentByGalacticPicture(currentPicture);
     }
 
+    @GetMapping("/by/user")
+    public ArrayList findCommentByUser(Principal principal) {
+        User currentUser = this.userService.getUserByName(principal.getName());
+        return this.commentService.findCommentByUser(currentUser);
+    }
+
     @DeleteMapping
     public void deleteCommentById(@RequestParam(value = "id") String id) {
         this.commentService.deleteCommentById(id);

@@ -3,6 +3,7 @@ package com.kirua.galactic.dao.implementation;
 import com.kirua.galactic.dao.CommentDao;
 import com.kirua.galactic.domain.comment.Comment;
 import com.kirua.galactic.domain.pictures.GalacticPictures;
+import com.kirua.galactic.domain.user.User;
 import com.kirua.galactic.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -36,6 +37,21 @@ public class CommentInDB implements CommentDao {
             details.put("content", commentList.get(i).getContent());
             details.put("user_writer", commentList.get(i).getUser().getLogin());
             details.put("picture_id", commentList.get(i).getGalacticPictures().getId().toString());
+            sortedList.add(details);
+        }
+        return sortedList;
+    }
+
+    @Override
+    public ArrayList findPictureByUser(User user) {
+        ArrayList<Comment> commentList = this.commentRepository.findCommentByUser(user);
+        ArrayList<Object> sortedList = new ArrayList<>();
+        for (int i = 0; i < commentList.size(); i++) {
+            HashMap<String, String> details = new HashMap<>();
+            details.put("id", commentList.get(i).getId().toString());
+            details.put("content", commentList.get(i).getContent());
+            details.put("picture_id", commentList.get(i).getGalacticPictures().getId().toString());
+            details.put("picture_title", commentList.get(i).getGalacticPictures().getTitle());
             sortedList.add(details);
         }
         return sortedList;

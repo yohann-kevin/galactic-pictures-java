@@ -34,6 +34,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable()
                 .formLogin();
 
+                http.headers()
+                        .xssProtection()
+                        .and()
+                        .contentSecurityPolicy("script-src 'self'");
+
                 http.authorizeRequests()
                         .antMatchers("/sign-up", "/auth").permitAll()
                         .anyRequest().authenticated();

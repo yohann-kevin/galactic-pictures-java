@@ -1,7 +1,11 @@
 package com.kirua.galactic.controller;
 
+import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.domain.user.User;
+import com.kirua.galactic.exception.InvalidUuidException;
+import com.kirua.galactic.exception.PictureNotFoundException;
 import com.kirua.galactic.service.FavoriteService;
+import com.kirua.galactic.service.GalacticPicturesService;
 import com.kirua.galactic.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,8 @@ public class FavoriteController {
 
     private UserService userService;
 
+    private GalacticPicturesService galacticPicturesService;
+
     @GetMapping
     public ArrayList<Object> findFavoriteByUser(Principal principal) {
         User currentUser = this.userService.getUserByName(principal.getName());
@@ -24,7 +30,8 @@ public class FavoriteController {
     }
 
     @DeleteMapping
-    public void unlikePictureById(@RequestParam(value = "id") String id) {
+    public void unlikePictureById(@RequestParam String pictureId, String id) throws InvalidUuidException {
+        this.galacticPicturesService.unlikePicture(pictureId);
         this.favoriteService.unlikePictureById(id);
     }
 }

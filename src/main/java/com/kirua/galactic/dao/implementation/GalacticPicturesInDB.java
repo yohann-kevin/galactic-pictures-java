@@ -101,6 +101,21 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
+    public void unlikePicture(String id) throws InvalidUuidException {
+        try {
+            UUID uid = UUID.fromString(id);
+            GalacticPictures pictures = this.findById(uid);
+            int actuallyLike = pictures.getToLike();
+            pictures.setToLike(actuallyLike - 1);
+            galacticPictureRepository.save(pictures);
+        } catch (Exception e) {
+            String err = "this id is invalid id accepted is : uuid. error" + e;
+            logger.error(err);
+            throw new InvalidUuidException(err);
+        }
+    }
+
+    @Override
     public void downloadPicture(String id) throws InvalidUuidException {
         try {
             UUID uid = UUID.fromString(id);

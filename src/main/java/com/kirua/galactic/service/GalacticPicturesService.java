@@ -32,13 +32,15 @@ public class GalacticPicturesService {
         return galacticPicturesDao.findById(uid);
     }
 
-    public void deleteById(String id) throws PictureNotFoundException { galacticPicturesDao.deleteById(id); }
+    public void deleteById(String id) throws PictureNotFoundException { this.galacticPicturesDao.deleteById(id); }
 
-    public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException { galacticPicturesDao.updatePicture(id, date, description, title, mediaType, copyright, hdurl, url); }
+    public void updatePicture(String id, String date, String description, String title, String mediaType, String copyright, String hdurl, String url) throws PictureNotFoundException { this.galacticPicturesDao.updatePicture(id, date, description, title, mediaType, copyright, hdurl, url); }
 
-    public void likePicture(String id) throws InvalidUuidException { galacticPicturesDao.likePicture(id); }
+    public void likePicture(String id) throws InvalidUuidException { this.galacticPicturesDao.likePicture(id); }
 
-    public void donwloadPicture(String id) throws InvalidUuidException { galacticPicturesDao.downloadPicture(id); }
+    public void unlikePicture(String id) throws InvalidUuidException { this.galacticPicturesDao.unlikePicture(id); }
 
-    public void resetAllPictureData() { galacticPicturesDao.resetDataPicture(); }
+    public void donwloadPicture(String id) throws InvalidUuidException { this.galacticPicturesDao.downloadPicture(id); }
+
+    public void resetAllPictureData() { this.galacticPicturesDao.resetDataPicture(); }
 }

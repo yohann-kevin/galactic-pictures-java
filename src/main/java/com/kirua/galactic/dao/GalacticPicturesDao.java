@@ -23,6 +23,8 @@ public interface GalacticPicturesDao {
 
      void likePicture(String id) throws InvalidUuidException;
 
+     void unlikePicture(String id) throws InvalidUuidException;
+
      void downloadPicture(String id) throws InvalidUuidException;
 
      void resetDataPicture();

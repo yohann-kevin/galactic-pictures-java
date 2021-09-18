@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -22,6 +23,8 @@ public class Comment {
     private UUID id;
 
     private String content;
+
+    private Date date;
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)

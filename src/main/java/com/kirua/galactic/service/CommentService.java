@@ -7,6 +7,7 @@ import com.kirua.galactic.domain.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -18,7 +19,8 @@ public class CommentService {
     }
 
     public Comment add(String content, User user, GalacticPictures galacticPictures) {
-        Comment newComment = new Comment(UUID.randomUUID(), content, user, galacticPictures);
+        Date date = new Date();
+        Comment newComment = new Comment(UUID.randomUUID(), content, date, user, galacticPictures);
         this.commentDao.add(newComment);
         return newComment;
     }

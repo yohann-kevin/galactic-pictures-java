@@ -47,11 +47,12 @@ public class CommentInDB implements CommentDao {
         ArrayList<Comment> commentList = this.commentRepository.findCommentByUser(user);
         ArrayList<Object> sortedList = new ArrayList<>();
         for (int i = 0; i < commentList.size(); i++) {
-            HashMap<String, String> details = new HashMap<>();
+            HashMap<String, Object> details = new HashMap<>();
             details.put("id", commentList.get(i).getId().toString());
             details.put("content", commentList.get(i).getContent());
             details.put("picture_id", commentList.get(i).getGalacticPictures().getId().toString());
             details.put("picture_title", commentList.get(i).getGalacticPictures().getTitle());
+            details.put("created_at", commentList.get(i).getDate());
             sortedList.add(details);
         }
         return sortedList;

@@ -17,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
+import springfox.documentation.annotations.ApiIgnore;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.security.Principal;
 import java.text.SimpleDateFormat;
@@ -25,6 +27,7 @@ import java.util.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/picture")
+@EnableSwagger2
 public class GalacticPictureController {
     private GalacticPicturesService galacticPicturesService;
 
@@ -166,6 +169,7 @@ public class GalacticPictureController {
         }
     }
 
+    @ApiIgnore
     @GetMapping("/admin/reset")
     public void resetPictureData() {
         this.galacticPicturesService.resetAllPictureData();

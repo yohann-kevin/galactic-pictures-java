@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .contentSecurityPolicy("script-src 'self'");
 
                 http.authorizeRequests()
-                        .antMatchers("/sign-up", "/auth").permitAll()
+                        .antMatchers("/user/sign-up", "/auth").permitAll()
                         .anyRequest().authenticated();
 
                 http.addFilterBefore(

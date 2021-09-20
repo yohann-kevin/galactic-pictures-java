@@ -34,13 +34,6 @@ public class GalacticPictureController {
     private FavoriteService favoriteService;
     private UserService userService;
 
-    @GetMapping("/production/check")
-    public HashMap<String, Boolean> checkProductionWork() {
-        HashMap<String, Boolean> response = new HashMap<>();
-        response.put("response", true);
-        return response;
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addGalacticPicture(@RequestParam String name, String description, String date, String url, String hdurl, String copyright, String mediaType) {

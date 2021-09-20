@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE,"/picture").hasRole("ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/picture/admin/reset").hasRole("ADMIN")
+                .antMatchers("/open/picture/**").permitAll()
                 .and().csrf().disable()
                 .formLogin();
 

@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,13 +25,6 @@ public class UserService {
     }
 
     public void signUp(SignUp signUp) {
-//        builder user
-//        User person = User.builder()
-//                .id(UUID.randomUUID())
-//                .login(signUp.getLogin())
-//                .password(passwordEncoder.encode(signUp.getPassword()))
-//                .role("USER")
-//                .build();
         User person = new User(UUID.randomUUID(), passwordEncoder.encode(signUp.getPassword()), signUp.getLogin(), "USER");
         userRepository.save(person);
         logger.info("New subscription : login={}", person.getLogin());

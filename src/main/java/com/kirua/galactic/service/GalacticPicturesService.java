@@ -5,8 +5,7 @@ import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.InvalidUuidException;
 import com.kirua.galactic.exception.PictureNotFoundException;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.*;
 
 public class GalacticPicturesService {
     private GalacticPicturesDao galacticPicturesDao;

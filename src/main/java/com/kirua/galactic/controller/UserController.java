@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -32,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("current-user")
-    public HashMap findCurrentUser(HttpSession session) {
+    public HashMap findCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = this.getUserByName(username);
         HashMap userInfo = new HashMap();

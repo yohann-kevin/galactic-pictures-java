@@ -1,9 +1,7 @@
 package com.kirua.galactic.controller;
 
-import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.domain.user.User;
 import com.kirua.galactic.exception.InvalidUuidException;
-import com.kirua.galactic.exception.PictureNotFoundException;
 import com.kirua.galactic.service.FavoriteService;
 import com.kirua.galactic.service.GalacticPicturesService;
 import com.kirua.galactic.service.UserService;

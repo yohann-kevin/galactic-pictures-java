@@ -33,3 +33,5 @@ target
 
 ### MACOS
 **/.DS_Store
+
+.env

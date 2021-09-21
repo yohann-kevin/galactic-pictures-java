@@ -4,10 +4,10 @@
 
 Daily Galactic Pictures est une application en lien avec une API open-data de la 
 NASA qui met chaque jour de nouvelles images en rapport avec l'astronomie à 
-disposition des développeurs. Le but de notre application est de regrouper toutes ces 
-publications de la NASA sur une seule plateforme faisant office de forum sur lesquelles 
+disposition des développeurs. Le but de notre application est de regrouper toutes les 
+publications de la NASA sur une seule plateforme faisant office de forum sur lequel 
 les amateurs en astronomie peuvent échanger, débattre et apporté de nouvelles 
-informations sur un sujet données. L'application permet aux utilisateurs lambda 
+informations sur un sujet donné. L'application permet aux utilisateurs lambda 
 (non inscrit) de consulter les photos et les articles mis à disposition par la NASA. 
 L'utilisateur inscrit quant à lui peut commenter une publication, il peut aussi aimer 
 une publication qui par conséquent se retrouvera dans ses favoris de plus, il aura 
@@ -24,7 +24,7 @@ classer en deux catégories.
 * Données liées à l'utilisateur :
   * Son pseudonyme
   * Son mot de passe
-  * Son adresse email afin de permettre à l'utilisteur de récupérer son mot de passe (prochainement)
+  * Son adresse email afin de permettre à l'utiliasteur de récupérer son mot de passe (prochainement)
   * Ses images ajouté en favoris
   * Ainsi que les commentaires posté sur la plateforme
 * Données liées aux images :
@@ -57,7 +57,7 @@ composant. Partons du principe que nous voulons tester l'un de nos services,
 ce service dépend forcément d'un DAO et bien mockito va venir simuler le comportement 
 du DAO afin de tester notre service.
 
-Mockito est une dépendance open source dont le code source est disponible sur github 
+Mockito est une dépendance open source dont le code est disponible sur github 
 on peut y voir qu'il possède une communauté assez active composer de 226 contributeurs 
 et que la dernière mise à jour date de moins d'un mois.
 
@@ -71,7 +71,7 @@ voir sur mvn repository que sa dernière version date de mars de cette année
 
 Lombok est aussi une dépendance assez connue en Java elle permet d'écrire moins de 
 code en générant automatiquement  des "getter et Setter" ainsi que des constructeurs 
-en utilisant seulement des annotations en haut d'une classe Java. Plutôt pratique ! 
+en utilisant seulement des annotations en haut d'une classe. Plutôt pratique ! 
 Elle permet aussi de réduire le code nécessaire à l'instanciation d'une classe en 
 utilisant un "Builder".
 
@@ -91,7 +91,7 @@ Pour cette dépendance, nous utilisons la dernière version qui date de 2018.
 
 Et enfin nous utilisons swagger qui permet de générer une documentation d'API à partir 
 des routes présente dans nos contrôleurs. Cette dépendance compte presque un millier 
-d'utilisateurs et sa dernière version date de juillet 2020.
+d'utilisateur et sa dernière version date de juillet 2020.
 
 <h3>2.3 - Gestion des rôles utilisateurs</h3>
 
@@ -267,7 +267,7 @@ injections XSS sur cette application.
 
 Security Misconfiguration fait référance au configuration de sécurité mal 
 paramétré dans notres cas je vais essayer de me connecter en tant qu'administrateur 
-en utilisant des mot de passe simple mais très courant comme "admin" ou autre.
+en utilisant des mot de passe simple mais très courant comme "admin", "test" ou autre.
 
 <h4>B - Classification</h4>
 
@@ -279,11 +279,7 @@ en utilisant des mot de passe simple mais très courant comme "admin" ou autre.
 
 <h4>C - Processus de test </h4>
 
-Pour commencer, je connaissant le prénom et le nom de Yaroslav, je me suis mis 
-en quêtes de trouver son adresse e-mail personnelle que je n'ai pas eu de mal 
-à trouver via LinkedIn une fois récupérer je n'avais plus qu'à tester sa route 
-d'authentification sur Postman avec son e-mail est des mot de passe généraliste 
-comme "admin" ou "root" ou bien "test".
+Pour tester cette faille, il suffit d'essayer de se connecter avec des mots de passe et adresse généraliste de test comme "test@test.com" ou "toto@toto.com" parfois certains développeur pas très futé laisse ce genre de mot de passe et adresse de test sur des applications en production.
 
 L'URL tester : 
 
@@ -295,8 +291,8 @@ Les données d'identification tester :
 
 ```json
 {
-  "email": "yaroslav.hontar@gmail.com",
-  "password": "admin"
+  "email": "test@test.com",
+  "password": "test"
 }
 ```
 

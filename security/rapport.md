@@ -214,7 +214,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 Notre note sur securityheaders.com : 
 
-![](src\security-header.png)
+<img src="./src/security-header.png" />
 
 <h2>3 - Application à attaquer</h2>
 

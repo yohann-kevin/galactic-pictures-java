@@ -38,7 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 http.headers()
                         .xssProtection()
                         .and()
-                        .contentSecurityPolicy("script-src 'self'");
+                        .contentSecurityPolicy("script-src 'self'")
+                        .and().permissionsPolicy(permissions -> permissions
+                                .policy("geolocation 'self'")
+                        );
 
                 http.authorizeRequests()
                         .antMatchers("/user/sign-up", "/auth").permitAll()

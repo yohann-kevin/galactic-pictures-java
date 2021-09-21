@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -41,6 +43,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .contentSecurityPolicy("script-src 'self'")
                         .and().permissionsPolicy(permissions -> permissions
                                 .policy("geolocation 'self'")
+                        )
+                        .and().referrerPolicy(referrerPolicy ->
+                                referrerPolicy
+                                        .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER_WHEN_DOWNGRADE)
                         );
 
                 http.authorizeRequests()

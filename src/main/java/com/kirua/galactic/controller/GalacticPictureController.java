@@ -86,7 +86,7 @@ public class GalacticPictureController {
     @GetMapping("/find")
     public RedirectView findDataFromNasaApi() throws PictureNotFoundException {
         Date currentDate = new Date();
-        for (int i = 0; i > -200; i--) {
+        for (int i = 0; i > -30; i--) {
             Date beforeToday = this.addDays(currentDate, i);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.checkIfPictureIsAlreadyExist(dateFormat.format(beforeToday));

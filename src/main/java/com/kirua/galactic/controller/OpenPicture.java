@@ -53,4 +53,10 @@ public class OpenPicture {
         tokenResponse.put("token", token);
         return tokenResponse;
     }
+
+    @GetMapping("/key/find")
+    public HashMap findTokenByUserName(Principal principal) {
+        String name = principal.getName();
+        return this.tokenService.findTokenByName(name);
+    }
 }

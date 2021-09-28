@@ -23,4 +23,8 @@ public class TokenService {
     public HashMap findTokenByName(String name) {
         return this.tokenDao.findTokenByName(name);
     }
+
+    public HashMap regenerateToken(String name) {
+        return this.tokenDao.regenerateToken(name);
+    }
 }

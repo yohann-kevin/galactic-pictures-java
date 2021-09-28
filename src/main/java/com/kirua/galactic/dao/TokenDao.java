@@ -8,4 +8,6 @@ public interface TokenDao {
     void add(Token token);
 
     HashMap findTokenByName(String name);
+
+    HashMap regenerateToken(String name);
 }

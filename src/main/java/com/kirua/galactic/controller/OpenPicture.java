@@ -59,4 +59,10 @@ public class OpenPicture {
         String name = principal.getName();
         return this.tokenService.findTokenByName(name);
     }
+
+    @GetMapping("/key/regenerate")
+    public HashMap regenerateToken(Principal principal) {
+        String name = principal.getName();
+        return this.tokenService.regenerateToken(name);
+    }
 }

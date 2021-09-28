@@ -2,7 +2,9 @@ package com.kirua.galactic.controller;
 
 import com.kirua.galactic.domain.pictures.GalacticPictures;
 import com.kirua.galactic.exception.PictureNotFoundException;
+import com.kirua.galactic.security.JwtUtil;
 import com.kirua.galactic.service.GalacticPicturesService;
+import com.kirua.galactic.service.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/open/picture")
 public class OpenPicture {
     private GalacticPicturesService galacticPicturesService;
+
+    private TokenService tokenService;
+
+    private final JwtUtil jwtUtil;
 
     @GetMapping
     public ArrayList<GalacticPictures> displayAllPicture() {
@@ -33,5 +40,16 @@ public class OpenPicture {
     public GalacticPictures displayPictureById(@PathVariable String uuid) throws PictureNotFoundException {
         GalacticPictures galacticPictures = this.galacticPicturesService.findById(uuid);
         return galacticPictures;
+    }
+
+    @GetMapping("/key")
+    public HashMap generateOpenApiKey() {
+        String email = "toto@gmail.com";
+        String token = this.jwtUtil.generateJwtTokenForOpenApi(email);
+        this.tokenService.registerToken(email, token);
+        HashMap<String, String> tokenResponse = new HashMap<>();
+        tokenResponse.put("email", email);
+        tokenResponse.put("token", token);
+        return tokenResponse;
     }
 }

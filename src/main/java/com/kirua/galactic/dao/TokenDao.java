@@ -10,4 +10,6 @@ public interface TokenDao {
     HashMap findTokenByName(String name);
 
     HashMap regenerateToken(String name);
+
+    Boolean verifyTokenExist(String token);
 }

@@ -27,4 +27,8 @@ public class TokenService {
     public HashMap regenerateToken(String name) {
         return this.tokenDao.regenerateToken(name);
     }
+
+    public Boolean verifyTokenExist(String tokenCheck) {
+        return this.tokenDao.verifyTokenExist(tokenCheck);
+    }
 }

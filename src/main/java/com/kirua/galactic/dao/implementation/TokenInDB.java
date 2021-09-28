@@ -35,4 +35,10 @@ public class TokenInDB implements TokenDao {
         this.tokenRepository.save(initialToken);
         return this.findTokenByName(name);
     }
+
+    @Override
+    public Boolean verifyTokenExist(String tokenCheck) {
+        Token token = this.tokenRepository.findTokenByToken(tokenCheck);
+        return token != null;
+    }
 }

@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface TokenRepository extends JpaRepository<Token, UUID>  {
     Token findTokenByName(String name);
+
+    Token findTokenByToken(String token);
 }

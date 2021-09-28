@@ -6,10 +6,7 @@ import com.kirua.galactic.security.JwtUtil;
 import com.kirua.galactic.service.GalacticPicturesService;
 import com.kirua.galactic.service.TokenService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -26,9 +23,15 @@ public class OpenPictureController {
     private final JwtUtil jwtUtil;
 
     @GetMapping
-    public ArrayList<GalacticPictures> displayAllPicture() {
+    public ArrayList<GalacticPictures> displayAllPicture(@RequestParam(value = "token") String token) {
         ArrayList<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
-        return galacticPicturesList;
+        Boolean tokenExist = this.tokenService.verifyTokenExist(token);
+        if (tokenExist) {
+            return galacticPicturesList;
+        } else {
+            System.out.println("error");
+            return galacticPicturesList;
+        }
     }
 
     @GetMapping("/date/{date}")

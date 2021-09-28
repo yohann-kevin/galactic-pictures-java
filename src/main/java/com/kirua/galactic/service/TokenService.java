@@ -14,8 +14,8 @@ public class TokenService {
         this.tokenDao = tokenDao;
     }
 
-    public void registerToken(String email, String initialToken) {
-        Token finalToken = new Token(UUID.randomUUID(), email, initialToken);
+    public void registerToken(String name, String initialToken) {
+        Token finalToken = new Token(UUID.randomUUID(), name, initialToken);
         this.tokenDao.add(finalToken);
     }
 }

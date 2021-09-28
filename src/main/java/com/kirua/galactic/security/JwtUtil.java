@@ -31,9 +31,9 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String generateJwtTokenForOpenApi(String email) {
+    public String generateJwtTokenForOpenApi(String name) {
         return Jwts.builder()
-                .setSubject(email)
+                .setSubject(name)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)

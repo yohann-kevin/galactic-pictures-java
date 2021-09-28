@@ -22,7 +22,7 @@ public class Token {
     private UUID id;
 
     @Column(unique = true)
-    private String email;
+    private String name;
 
     @Column(unique = true)
     private String token;

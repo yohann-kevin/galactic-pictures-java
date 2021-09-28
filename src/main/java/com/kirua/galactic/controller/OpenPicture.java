@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,12 +44,12 @@ public class OpenPicture {
     }
 
     @GetMapping("/key")
-    public HashMap generateOpenApiKey() {
-        String email = "toto@gmail.com";
-        String token = this.jwtUtil.generateJwtTokenForOpenApi(email);
-        this.tokenService.registerToken(email, token);
+    public HashMap generateOpenApiKey(Principal principal) {
+        String name = principal.getName();
+        String token = this.jwtUtil.generateJwtTokenForOpenApi(name);
+        this.tokenService.registerToken(name, token);
         HashMap<String, String> tokenResponse = new HashMap<>();
-        tokenResponse.put("email", email);
+        tokenResponse.put("name", name);
         tokenResponse.put("token", token);
         return tokenResponse;
     }

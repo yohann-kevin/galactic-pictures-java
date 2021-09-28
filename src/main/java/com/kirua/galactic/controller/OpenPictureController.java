@@ -18,7 +18,7 @@ import java.util.HashMap;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/open/picture")
-public class OpenPicture {
+public class OpenPictureController {
     private GalacticPicturesService galacticPicturesService;
 
     private TokenService tokenService;

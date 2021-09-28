@@ -204,7 +204,7 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'toto@gmail.c
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
 	at com.kirua.galactic.dao.implementation.TokenInDB$$EnhancerBySpringCGLIB$$6d89ada9.add(<generated>) ~[classes/:na]
 	at com.kirua.galactic.service.TokenService.registerToken(TokenService.java:19) ~[classes/:na]
-	at com.kirua.galactic.controller.OpenPicture.generateOpenApiKey(OpenPicture.java:49) ~[classes/:na]
+	at com.kirua.galactic.controller.OpenPictureController.generateOpenApiKey(OpenPicture.java:49) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -1553,3 +1553,40 @@ java.lang.NullPointerException: Cannot invoke "com.kirua.galactic.security.JwtUt
 2021-09-28 15:44:40.179  INFO 23880 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-09-28 15:44:40.181  INFO 23880 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-09-28 15:44:40.189  INFO 23880 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-09-28 16:00:44.690  INFO 10884 --- [main] com.kirua.galactic.Main                  : Starting Main using Java 15.0.2 on LAPTOP-EDQH4ASC with PID 10884 (C:\Users\kirua\IdeaProjects\daily-galactic-pictures\target\classes started by kirua in C:\Users\kirua\IdeaProjects\daily-galactic-pictures)
+2021-09-28 16:00:44.693  INFO 10884 --- [main] com.kirua.galactic.Main                  : No active profile set, falling back to default profiles: default
+2021-09-28 16:00:45.400  INFO 10884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 16:00:45.457  INFO 10884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2021-09-28 16:00:45.847  INFO 10884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-09-28 16:00:45.854  INFO 10884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 16:00:45.854  INFO 10884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 16:00:45.935  INFO 10884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2021-09-28 16:00:45.935  INFO 10884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1209 ms
+2021-09-28 16:00:45.956  INFO 10884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 16:00:46.205  INFO 10884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 16:00:46.209  INFO 10884 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/galactic_pictures'
+2021-09-28 16:00:46.317  INFO 10884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 16:00:46.362  INFO 10884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 16:00:46.492  INFO 10884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 16:00:46.580  INFO 10884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-09-28 16:00:47.063  INFO 10884 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 16:00:47.071  INFO 10884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 16:00:47.320  WARN 10884 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 16:00:47.741  INFO 10884 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-28 16:00:47.795  INFO 10884 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@294ab038, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e475994, org.springframework.security.web.header.HeaderWriterFilter@1da61a29, org.springframework.web.filter.CorsFilter@395abe85, org.springframework.security.web.authentication.logout.LogoutFilter@2c7607e5, com.kirua.galactic.security.JwtAuthFilter@5b74bb75, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45cddfd3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@c7cbc2d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@55849272, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@639bf405, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a99744a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f571c0e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2eb91767, org.springframework.security.web.session.SessionManagementFilter@6b64921f, org.springframework.security.web.access.ExceptionTranslationFilter@6bfc5296, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5687ade6]
+2021-09-28 16:00:47.928  INFO 10884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/api'
+2021-09-28 16:00:47.929  INFO 10884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-09-28 16:00:47.942  INFO 10884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-09-28 16:00:47.971  INFO 10884 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-09-28 16:00:48.163  INFO 10884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: displayAllPictureUsingGET_1
+2021-09-28 16:00:48.164  INFO 10884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: displayPictureByIdUsingGET_1
+2021-09-28 16:00:48.167  INFO 10884 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: displayPictureDateUsingGET_1
+2021-09-28 16:00:48.192  INFO 10884 --- [main] com.kirua.galactic.Main                  : Started Main in 3.822 seconds (JVM running for 4.316)
+2021-09-28 16:00:53.535  INFO 10884 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 16:00:53.536  INFO 10884 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 16:00:53.537  INFO 10884 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-09-28 16:00:57.874 DEBUG 10884 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select user0_.id as id1_4_, user0_.login as login2_4_, user0_.password as password3_4_, user0_.role as role4_4_ from user user0_ where user0_.login=?
+2021-09-28 16:00:57.984 DEBUG 10884 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select token0_.id as id1_3_, token0_.name as name2_3_, token0_.token as token3_3_ from token token0_ where token0_.name=?
+2021-09-28 16:01:04.771  INFO 10884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 16:01:04.774  INFO 10884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-09-28 16:01:04.784  INFO 10884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

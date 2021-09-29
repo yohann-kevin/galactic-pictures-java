@@ -7,7 +7,7 @@
 find all picture :
 
 ```shell
-
+http://localhost:8081/api/open/picture?token=<YOUR_TOKEN>
 ```
 
 find picture by id :

@@ -7,6 +7,7 @@ import com.kirua.galactic.service.GalacticPicturesService;
 import com.kirua.galactic.service.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/open/picture")
+
 public class OpenPictureController {
     private GalacticPicturesService galacticPicturesService;
 
@@ -23,14 +25,13 @@ public class OpenPictureController {
     private final JwtUtil jwtUtil;
 
     @GetMapping
-    public ArrayList<GalacticPictures> displayAllPicture(@RequestParam(value = "token") String token) {
+    public Object displayAllPicture(@RequestParam(value = "token") String token) {
         ArrayList<GalacticPictures> galacticPicturesList = this.galacticPicturesService.findAll();
         Boolean tokenExist = this.tokenService.verifyTokenExist(token);
         if (tokenExist) {
             return galacticPicturesList;
         } else {
-            System.out.println("error");
-            return galacticPicturesList;
+            return this.invalidKey(token);
         }
     }
 
@@ -67,5 +68,13 @@ public class OpenPictureController {
     public HashMap regenerateToken(Principal principal) {
         String name = principal.getName();
         return this.tokenService.regenerateToken(name);
+    }
+
+    @GetMapping("/key/error")
+    public HashMap invalidKey(String token) {
+        HashMap<String, String> response = new HashMap<>();
+        response.put("error", "Invalid token ! ");
+        response.put("token", token);
+        return response;
     }
 }

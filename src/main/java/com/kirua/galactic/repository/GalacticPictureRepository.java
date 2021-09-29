@@ -10,4 +10,6 @@ public interface GalacticPictureRepository extends JpaRepository<GalacticPicture
     ArrayList findAllByOrderByDateDesc();
 
     GalacticPictures findByDate(String date);
+
+    ArrayList findAllByDateBetween(String start, String end);
 }

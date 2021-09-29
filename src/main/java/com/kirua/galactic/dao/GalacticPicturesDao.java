@@ -15,6 +15,8 @@ public interface GalacticPicturesDao {
 
      GalacticPictures findById(UUID id) throws PictureNotFoundException;
 
+     ArrayList findPictureBetweenTwoDate(String start, String end);
+
      void add(GalacticPictures galacticPictures);
 
      void deleteById(String id) throws PictureNotFoundException;

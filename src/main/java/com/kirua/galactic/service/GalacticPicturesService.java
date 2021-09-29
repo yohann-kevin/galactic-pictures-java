@@ -26,6 +26,10 @@ public class GalacticPicturesService {
 
     public GalacticPictures findByDate(String date) throws PictureNotFoundException { return galacticPicturesDao.findByDate(date); }
 
+    public ArrayList<GalacticPictures> findBetweenTwoDate(String start, String end) {
+        return this.galacticPicturesDao.findPictureBetweenTwoDate(start, end);
+    }
+
     public GalacticPictures findById(String id) throws PictureNotFoundException {
         UUID uid = UUID.fromString(id);
         return galacticPicturesDao.findById(uid);

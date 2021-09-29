@@ -37,6 +37,11 @@ public class GalacticPicturesInDB implements GalacticPicturesDao {
     }
 
     @Override
+    public ArrayList<GalacticPictures> findPictureBetweenTwoDate(String start, String end) {
+        return this.galacticPictureRepository.findAllByDateBetween(start, end);
+    }
+
+    @Override
     public GalacticPictures findByDate(String date) throws PictureNotFoundException {
         try {
             return this.galacticPictureRepository.findByDate(date);

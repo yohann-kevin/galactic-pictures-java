@@ -43,7 +43,12 @@ public class OpenPictureController {
         } else {
             return this.invalidKey(token);
         }
+    }
 
+    @GetMapping("/between/date")
+    public Object findPictureBetweenTwoDate(@RequestParam String start, String end) {
+        ArrayList<GalacticPictures> pictures = this.galacticPicturesService.findBetweenTwoDate(start, end);
+        return pictures;
     }
 
     @GetMapping("/id")

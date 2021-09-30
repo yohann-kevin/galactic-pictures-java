@@ -31,4 +31,11 @@ public class TokenService {
     public Boolean verifyTokenExist(String tokenCheck) {
         return this.tokenDao.verifyTokenExist(tokenCheck);
     }
+
+    public HashMap invalidKey(String token) {
+        HashMap<String, String> response = new HashMap<>();
+        response.put("error", "Invalid token ! ");
+        response.put("token", token);
+        return response;
+    }
 }

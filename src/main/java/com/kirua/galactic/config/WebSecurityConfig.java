@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         UsernamePasswordAuthenticationFilter.class
                 );
 
-                http.cors();
+                // http.cors();
     }
 
     @Override @Bean
